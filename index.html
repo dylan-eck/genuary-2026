@@ -2,17 +2,21 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>Sketch</title>
 
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="style.css" />
 
     <script src="https://cdn.jsdelivr.net/npm/p5@1.11.11/lib/p5.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/culori"></script>
   </head>
 
   <body>
-    <script src="sketch.js"></script>
+    <button id="prev-sketch-button">load previous sketch</button>
+    <button id="next-sketch-button">load next sketch</button>
+    <div id="sketch-container"></div>
+
+    <script type="module" src="./index.js"></script>
   </body>
 </html>
