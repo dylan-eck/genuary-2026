@@ -13,18 +13,18 @@ export default function day09(p) {
 
   p.preload = () => {
     caShader = p.loadShader(
-      "./src/shaders/quad.vert.glsl",
+      "./src/shaders/ca_quad.vert.glsl",
       "./src/shaders/ca.frag.glsl"
     );
     dispShader = p.loadShader(
-      "./src/shaders/quad.vert.glsl",
+      "./src/shaders/ca_quad.vert.glsl",
       "./src/shaders/disp.frag.glsl"
     );
   };
 
   p.setup = () => {
     p.createCanvas(CANVAS_WIDTH, CANVAS_HEIGHT, p.WEBGL);
-    p.frameRate(5);
+    p.frameRate(16);
 
     // Generate palette
     const hueShift = 0.61803398875;
