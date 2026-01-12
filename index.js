@@ -1,6 +1,6 @@
 const sketchImports = [];
 
-const NUM_SKETCHES = 10;
+const NUM_SKETCHES = 11;
 for (let i = 0; i < NUM_SKETCHES; i++) {
   const day = (i + 1).toString().padStart(2, "0");
   sketchImports.push(() =>
@@ -21,7 +21,7 @@ async function loadSketch(index) {
   }
 }
 
-currentSketch = loadSketch(0);
+currentSketch = loadSketch(sketchIndex);
 
 const nextSketchButton = document.getElementById("next-sketch-button");
 const prevSketchButton = document.getElementById("prev-sketch-button");
