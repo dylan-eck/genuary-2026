@@ -21,7 +21,7 @@ export default function Quine(p) {
     "",
     "    res = flr(w * 0.01); nr = (ffbb.b - ffbb.t) / res; nc = (ffbb.r - ffbb.l) / res;",
     "    grid = Array.from({ length: nc }, (_, i) => Array.from({ length: nr }, (_, j) =>",
-    "        p.noise(0.001 * (ffbb.l + i * res), 0.001 * (ffbb.t + j * res))));",
+    "      p.noise(0.001 * (ffbb.l + i * res), 0.001 * (ffbb.t + j * res))));",
     "",
     "    for (let i = 0; i < 200; i++) {addPath();} let ly = M + s + 18;",
     "    for (let i = 0; i < 5; i++) {addText(SRC[i], ly); ly += s;}",
