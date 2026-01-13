@@ -8,7 +8,7 @@ for (let i = 0; i < NUM_SKETCHES; i++) {
   );
 }
 
-let sketchIndex = 11;
+let sketchIndex = 0;
 let currentSketch;
 
 async function loadSketch(index) {
