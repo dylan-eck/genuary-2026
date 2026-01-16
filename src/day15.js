@@ -3,9 +3,13 @@ export default function day15(p) {
   let rot = 0;
   let trailLayer;
 
+  let RECORD_TIME = 60;
+  let FRAME_RATE = 60;
+
   p.setup = () => {
     p.createCanvas(1080, 1920);
     p.pixelDensity(1);
+    // p.frameRate(5);
 
     trailLayer = p.createGraphics(p.width, p.height);
     trailLayer.noStroke();
@@ -26,9 +30,9 @@ export default function day15(p) {
     p.strokeCap(p.SQUARE);
     p.noFill();
 
-    rot += 0.0002 * p.deltaTime;
+    rot += 0.0002 * (1000 / 60);
     const x = p.width / 2;
-    const y = p.height / 2;
+    const y = (2 * p.height) / 3;
     const r = 400;
     for (let i = 0; i < 5; i++) {
       const theta = (p.map(i, 0, 5, 0, p.TAU) + rot) % p.TAU;
@@ -101,5 +105,12 @@ export default function day15(p) {
 
     p.background(0);
     p.image(trailLayer, 0, 0);
+
+    // if (p.frameCount <= RECORD_TIME * FRAME_RATE) {
+    //   const frameNum = `${p.frameCount}`.padStart(4, "0");
+    //   p.save(`${frameNum}.png`);
+    // } else {
+    //   p.noLoop();
+    // }
   };
 }
