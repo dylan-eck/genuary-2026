@@ -238,15 +238,15 @@ export default function day14(p) {
     box.update(t);
     box.show();
 
-    if (
-      p.frameCount <=
-      RECORD_CYCLE_COUNT * CYCLE_FRAME_COUNT + CYCLE_FRAME_COUNT / 2 + 60
-    ) {
-      const frameNum = `${p.frameCount}`.padStart(4, "0");
-      p.save(`${frameNum}.png`);
-    } else {
-      p.noLoop();
-    }
+    // if (
+    //   p.frameCount <=
+    //   RECORD_CYCLE_COUNT * CYCLE_FRAME_COUNT + CYCLE_FRAME_COUNT / 2 + 60
+    // ) {
+    //   const frameNum = `${p.frameCount}`.padStart(4, "0");
+    //   p.save(`${frameNum}.png`);
+    // } else {
+    //   p.noLoop();
+    // }
   };
 
   function nonZeroSign(v) {
