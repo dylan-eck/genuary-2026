@@ -1,40 +1,20 @@
 export default function day16(p) {
   const MARGIN_PX = 80;
+  const NUM_PATHS = 80;
 
-  const LOOP_SECONDS = 2;
-  const LOOP_FRAME_RATE = 50;
-  const LOOP_FRAMES = LOOP_SECONDS * LOOP_FRAME_RATE;
-  const ANIMATION_SPEED = 0.05;
-
-  let recording = false;
+  let paths = [];
 
   p.setup = () => {
     p.createCanvas(1080, 1350);
+    p.noLoop();
 
-    if (recording) {
-      console.log("loop frame count: ", LOOP_FRAMES);
-      p.frameRate(2);
-    } else {
-      p.frameRate(60);
-    }
-  };
-
-  p.draw = () => {
-    p.background(220);
-    p.stroke(0);
-    p.strokeWeight(4);
-    p.noFill();
-
-    const t = (p.frameCount % LOOP_FRAMES) / (LOOP_FRAMES - 1);
-
-    const numPaths = 80;
     const dev = 50;
     const stepSize = 6;
     const numSteps = p.height / stepSize;
-    for (let i = 0; i < numPaths; i++) {
+    for (let i = 0; i < NUM_PATHS; i++) {
       const path = [
         {
-          x: p.map(i, 0, numPaths - 1, MARGIN_PX, p.width - MARGIN_PX),
+          x: p.map(i, 0, NUM_PATHS - 1, MARGIN_PX, p.width - MARGIN_PX),
           y: MARGIN_PX,
         },
       ];
@@ -43,17 +23,7 @@ export default function day16(p) {
 
         const dx = p.lerp(
           0,
-          p.map(
-            p.noise(
-              p.map(p.cos(t * p.TAU) - i * 10, -1, 1, 0, ANIMATION_SPEED),
-              p.map(p.sin(t * p.TAU) - i * 10, -1, 1, 0, ANIMATION_SPEED),
-              0.05 * (pt.y + i * 200)
-            ),
-            0,
-            1,
-            -dev / 2,
-            dev / 2
-          ),
+          p.map(p.noise(0.05 * (pt.y + i * 200)), 0, 1, -dev / 2, dev / 2),
           easeInExpo(pt.y / p.height)
         );
 
@@ -63,16 +33,39 @@ export default function day16(p) {
         });
       }
 
-      p.beginShape();
-      path.map((pt) => p.vertex(pt.x, pt.y));
-      p.endShape();
-    }
+      const pathOffsetAmt = 0.4;
+      const pathXOffset = p.randomGaussian(0, pathOffsetAmt);
+      const pathYOffset = p.randomGaussian(0, pathOffsetAmt);
 
-    if (recording && p.frameCount <= LOOP_FRAMES) {
-      const frameNum = `${p.frameCount}`.padStart(4, "0");
-      p.save(`${frameNum}.png`);
-    } else if (recording) {
-      p.noLoop();
+      const pointOffsetAmt = 0.2;
+
+      path.forEach((pt) => {
+        const pointXOffset = p.randomGaussian(0, pointOffsetAmt);
+        const pointYOffset = p.randomGaussian(0, pointOffsetAmt);
+
+        pt.x += pathXOffset + pointXOffset;
+        pt.y += pathYOffset + pointYOffset;
+      });
+
+      paths.push(path);
+    }
+  };
+
+  p.draw = () => {
+    p.background(255);
+    p.stroke(0);
+    p.strokeWeight(4);
+    p.noFill();
+    paths.forEach((path) => {
+      p.beginShape();
+      path.forEach((pt) => p.vertex(pt.x, pt.y));
+      p.endShape();
+    });
+  };
+
+  p.keyPressed = () => {
+    if (p.key.toLowerCase() === "s") {
+      p.save("day16.png");
     }
   };
 
