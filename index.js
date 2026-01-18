@@ -1,14 +1,14 @@
 const sketchImports = [];
 
-const NUM_SKETCHES = 16;
+const NUM_SKETCHES = 17;
 for (let i = 0; i < NUM_SKETCHES; i++) {
   const day = (i + 1).toString().padStart(2, "0");
   sketchImports.push(() =>
-    import(`./src/day${day}.js`).then((module) => module.default)
+    import(`./src/day${day}.js`).then((module) => module.default),
   );
 }
 
-let sketchIndex = 15;
+let sketchIndex = 16;
 let currentSketch;
 
 async function loadSketch(index) {
