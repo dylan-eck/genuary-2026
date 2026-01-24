@@ -1,6 +1,6 @@
 const sketchImports = [];
 
-const NUM_SKETCHES = 22;
+const NUM_SKETCHES = 23;
 for (let i = 0; i < NUM_SKETCHES; i++) {
   const day = (i + 1).toString().padStart(2, "0");
   sketchImports.push(() =>
@@ -8,7 +8,7 @@ for (let i = 0; i < NUM_SKETCHES; i++) {
   );
 }
 
-let sketchIndex = 21;
+let sketchIndex = 22;
 let currentSketch;
 
 async function loadSketch(index) {
