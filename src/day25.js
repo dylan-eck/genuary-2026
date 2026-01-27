@@ -125,13 +125,13 @@ export default function day25(p) {
       }
     }
 
-    if (leaves.length >= 10) {
-      const frameNum = `${p.frameCount}`.padStart(5, "0");
-      p.save(`${frameNum}.png`);
-    } else {
-      p.noLoop();
-    }
-    const maxDepth = p.max(...branches.map((b) => b.depth));
+    // if (leaves.length >= 10) {
+    //   const frameNum = `${p.frameCount}`.padStart(5, "0");
+    //   p.save(`${frameNum}.png`);
+    // } else {
+    //   p.noLoop();
+    // }
+    // const maxDepth = p.max(...branches.map((b) => b.depth));
 
     p.background(0);
     p.noStroke();
