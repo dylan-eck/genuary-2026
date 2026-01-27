@@ -111,11 +111,11 @@ export default function day23(p) {
 
     if (!recording) return;
 
-    if (p.frameCount <= RECORD_FRAME_COUNT) {
-      const frameNum = `${p.frameCount}`.padStart(4, "0");
-      p.save(`${frameNum}.png`);
-    } else {
-      p.noLoop();
-    }
+    // if (p.frameCount <= RECORD_FRAME_COUNT) {
+    //   const frameNum = `${p.frameCount}`.padStart(4, "0");
+    //   p.save(`${frameNum}.png`);
+    // } else {
+    //   p.noLoop();
+    // }
   };
 }

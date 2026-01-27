@@ -7,7 +7,7 @@ export default function day18(p) {
   const RECORD_FRAME_RATE = 60;
   const RECORD_FRAME_COUNT = RECORD_SECONDS * RECORD_FRAME_RATE;
 
-  let recording = true;
+  let recording = false;
 
   let positions = [];
   let segmentOffsets = [];
