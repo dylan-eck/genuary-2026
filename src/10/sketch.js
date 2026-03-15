@@ -3,19 +3,22 @@ export default function sketch(p, seed) {
   const MARGIN = 40;
 
   let buffer, warpShader, bgShader, palette;
+  let loading = true;
 
-  p.preload = () => {
-    warpShader = p.loadShader(
-      "../shaders/quad.vert.glsl",
-      "../shaders/warp.frag.glsl",
-    );
-    bgShader = p.loadShader(
-      "../shaders/quad.vert.glsl",
-      "../shaders/bg.frag.glsl",
-    );
-  };
+  async function load() {
+    const [warp, bg] = await Promise.all([
+      p.loadShader("../shaders/quad.vert.glsl", "../shaders/warp.frag.glsl"),
+      p.loadShader("../shaders/quad.vert.glsl", "../shaders/bg.frag.glsl"),
+    ]);
+
+    warpShader = warp;
+    bgShader = bg;
+    loading = false;
+  }
 
   p.setup = () => {
+    load();
+
     p.randomSeed(seed);
     p.noiseSeed(seed);
     p.createCanvas(1080, 1350, p.WEBGL);
@@ -71,6 +74,11 @@ export default function sketch(p, seed) {
   };
 
   p.draw = () => {
+    if (loading) {
+      p.clear();
+      return;
+    }
+
     p.noStroke();
     p.fill("white");
     p.rect(-p.width / 2, -p.height / 2, p.width, p.height);

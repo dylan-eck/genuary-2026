@@ -3,21 +3,26 @@ export default function sketch(p, seed) {
   let size;
   let bgShader;
   let bgFramebuffer;
+  let loading = true;
 
-  p.preload = () => {
+  function load() {
     bgShader = p.loadShader(
       "../shaders/quad.vert.glsl",
       "../shaders/noise.frag.glsl",
+      () => {
+        loading = false;
+      },
     );
-  };
+  }
 
   p.setup = () => {
+    load();
+
     p.randomSeed(seed);
     p.noiseSeed(seed);
     p.createCanvas(1080, 1350, p.WEBGL);
     p.stroke(0);
     p.strokeWeight(5);
-    p.noLoop();
 
     bgFramebuffer = p.createFramebuffer();
 
@@ -25,42 +30,48 @@ export default function sketch(p, seed) {
   };
 
   p.draw = () => {
-    bgFramebuffer.begin();
-    p.shader(bgShader);
-    bgShader.setUniform("u_time", p.random(1000));
-    bgShader.setUniform("u_resolution", [p.width, p.height]);
-    p.noStroke();
-    p.plane(p.width, p.height);
-    bgFramebuffer.end();
+    if (loading) {
+      p.clear();
+      return;
+    } else {
+      bgFramebuffer.begin();
+      p.shader(bgShader);
+      bgShader.setUniform("u_time", p.random(1000));
+      bgShader.setUniform("u_resolution", [p.width, p.height]);
+      p.noStroke();
+      p.plane(p.width, p.height);
+      bgFramebuffer.end();
 
-    p.image(bgFramebuffer, -p.width / 2, -p.height / 2, p.width, p.height);
+      p.image(bgFramebuffer, -p.width / 2, -p.height / 2, p.width, p.height);
 
-    p.translate(-p.width / 2, -p.height / 2);
+      p.translate(-p.width / 2, -p.height / 2);
 
-    const n = 16;
-    for (let i = 0; i < n; i++) {
-      const y = MARGIN_PX + ((p.width - 2 * MARGIN_PX) / (n - 1)) * i;
-      for (let j = 0; j < n; j++) {
-        if (p.random() < 0.2) continue;
+      const n = 16;
+      for (let i = 0; i < n; i++) {
+        const y = MARGIN_PX + ((p.width - 2 * MARGIN_PX) / (n - 1)) * i;
+        for (let j = 0; j < n; j++) {
+          if (p.random() < 0.2) continue;
 
-        const x = MARGIN_PX + ((p.width - 2 * MARGIN_PX) / (n - 1)) * j;
+          const x = MARGIN_PX + ((p.width - 2 * MARGIN_PX) / (n - 1)) * j;
 
-        const col = p.randomGaussian(30, 2);
-        p.stroke(col);
-        if (p.random() < 0.5) {
-          p.fill(col);
-        } else {
-          p.noFill();
+          const col = p.randomGaussian(30, 2);
+          p.stroke(col);
+          if (p.random() < 0.5) {
+            p.fill(col);
+          } else {
+            p.noFill();
+          }
+
+          const f = p.random([
+            roughCircle,
+            roughTriangle,
+            roughSquare,
+            roughCross,
+          ]);
+          f(x, y, 0.5, 0.2);
         }
-
-        const f = p.random([
-          roughCircle,
-          roughTriangle,
-          roughSquare,
-          roughCross,
-        ]);
-        f(x, y, 0.5, 0.2);
       }
+      p.noLoop();
     }
   };
 

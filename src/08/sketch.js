@@ -11,6 +11,7 @@ export default function sketch(p, seed) {
   let colorA;
   let colorB;
   let fogShader;
+  let loading = true;
 
   const bb = {
     w: 2500,
@@ -53,14 +54,19 @@ export default function sketch(p, seed) {
     }
   }
 
-  p.preload = () => {
+  function load() {
     fogShader = p.loadShader(
       "../shaders/fog.vert.glsl",
       "../shaders/fog.frag.glsl",
+      () => {
+        loading = false;
+      },
     );
-  };
+  }
 
   p.setup = () => {
+    load();
+
     p.randomSeed(seed);
     p.noiseSeed(seed);
     p.createCanvas(1080, 1920, p.WEBGL);
@@ -86,6 +92,11 @@ export default function sketch(p, seed) {
   };
 
   p.draw = () => {
+    if (loading) {
+      p.clear();
+      return;
+    }
+
     t = (p.frameCount % LOOP_FRAMES) / LOOP_FRAMES;
 
     p.noStroke();
