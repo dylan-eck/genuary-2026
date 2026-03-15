@@ -13,17 +13,21 @@ export default function sketch(p, seed) {
   let loading = true;
 
   async function load() {
-    const [ca, disp] = await Promise.all([
-      p.loadShader("../shaders/ca_quad.vert.glsl", "../shaders/mnca.frag.glsl"),
-      p.loadShader(
-        "../shaders/ca_quad.vert.glsl",
-        "../shaders/mnca_disp.frag.glsl",
-      ),
-    ]);
-
-    caShader = ca;
-    dispShader = disp;
-    loading = false;
+    // this callback chaining is a bit nasty, but I am doing it this to not
+    // over-complicate things we are only loading two shaders
+    caShader = p.loadShader(
+      "../shaders/ca_quad.vert.glsl",
+      "../shaders/mnca.frag.glsl",
+      () => {
+        dispShader = p.loadShader(
+          "../shaders/ca_quad.vert.glsl",
+          "../shaders/mnca_disp.frag.glsl",
+          () => {
+            loading = false;
+          },
+        );
+      },
+    );
   }
 
   p.setup = () => {

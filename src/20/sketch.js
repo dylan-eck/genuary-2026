@@ -21,21 +21,35 @@ export default function sketch(p, seed) {
   let recording = false;
   let loading = true;
 
-  async function load() {
-    const [bright, bH, bV, bloom] = await Promise.all([
-      p.loadShader("../shaders/quad.vert.glsl", "../shaders/bright.frag.glsl"),
-      p.loadShader("../shaders/quad.vert.glsl", "../shaders/blur.frag.glsl"),
-      p.loadShader("../shaders/quad.vert.glsl", "../shaders/blur.frag.glsl"),
-      p.loadShader("../shaders/quad.vert.glsl", "../shaders/bloom.frag.glsl"),
-    ]);
-
-    brightShader = bright;
-    blurH = bH;
-    blurV = bV;
-    bloomShader = bloom;
-    loading = false;
+  function load() {
+    // this callback chaining is a bit nasty, but I am doing it this to not
+    // over-complicate things we are only loading three shaders
+    brightShader = p.loadShader(
+      "../shaders/quad.vert.glsl",
+      "../shaders/bright.frag.glsl",
+      () => {
+        blurH = p.loadShader(
+          "../shaders/quad.vert.glsl",
+          "../shaders/blur.frag.glsl",
+          () => {
+            blurV = p.loadShader(
+              "../shaders/quad.vert.glsl",
+              "../shaders/blur.frag.glsl",
+              () => {
+                bloomShader = p.loadShader(
+                  "../shaders/quad.vert.glsl",
+                  "../shaders/bloom.frag.glsl",
+                  () => {
+                    loading = false;
+                  },
+                );
+              },
+            );
+          },
+        );
+      },
+    );
   }
-
   p.setup = () => {
     load();
 

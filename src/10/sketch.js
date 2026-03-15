@@ -5,15 +5,22 @@ export default function sketch(p, seed) {
   let buffer, warpShader, bgShader, palette;
   let loading = true;
 
-  async function load() {
-    const [warp, bg] = await Promise.all([
-      p.loadShader("../shaders/quad.vert.glsl", "../shaders/warp.frag.glsl"),
-      p.loadShader("../shaders/quad.vert.glsl", "../shaders/bg.frag.glsl"),
-    ]);
-
-    warpShader = warp;
-    bgShader = bg;
-    loading = false;
+  function load() {
+    // this callback chaining is a bit nasty, but I am doing it this to not
+    // over-complicate things we are only loading two shaders
+    warpShader = p.loadShader(
+      "../shaders/quad.vert.glsl",
+      "../shaders/warp.frag.glsl",
+      () => {
+        bgShader = p.loadShader(
+          "../shaders/quad.vert.glsl",
+          "../shaders/bg.frag.glsl",
+          () => {
+            loading = false;
+          },
+        );
+      },
+    );
   }
 
   p.setup = () => {
@@ -74,7 +81,7 @@ export default function sketch(p, seed) {
   };
 
   p.draw = () => {
-    if (loading) {
+    if (loading || !bgShader || !warpShader) {
       p.clear();
       return;
     }
