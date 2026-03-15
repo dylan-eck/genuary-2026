@@ -8,34 +8,36 @@ body {
   font-family: monospace;
   background-color: #110c16;
   color: #f1ecf5;
+  line-height: 1.6;
 }
 
 a {
   color: #f1ecf5;
 }
 
-main {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
+h1 {
   margin-top: 2em;
-  margin-bottom: 2em;
 }
 
-canvas,
-iframe {
-  display: block;
-  max-width: 90vw;
-  max-height: 75vh;
-  width: auto !important;
-  height: auto !important;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+.main-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 500px;
+  width: 50%;
+  margin: 2em 0;
+  text-align: left;
 }
 
-iframe {
-  aspect-ratio: 9 / 16 !important;
+.sketch-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 2em;
+  row-gap: 0.5em;
+  width: 100%;
+  max-width: 500px;
+  margin: 2em 0;
+  justify-items: center;
 }
 
 main > div {
@@ -53,16 +55,24 @@ main > div > svg {
   display: block !important;
 }
 
-.gallery {
-  display: flex;
-  flex-direction: column;
+iframe {
+  aspect-ratio: 9 / 16 !important;
 }
 
+canvas,
+iframe {
+  display: block;
+  max-width: 90vw;
+  max-height: 75vh;
+  width: auto !important;
+  height: auto !important;
+}
+
+/* Navigation */
 nav {
   margin-top: 2em;
   width: 95%;
   display: grid;
-  /* Use 1fr on sides to push the center content to the middle */
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
 }
@@ -77,29 +87,6 @@ nav {
   min-width: 24em;
 }
 
-@media (max-width: 600px) {
-  nav {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto auto;
-    row-gap: 1.5em;
-    width: 100%;
-    padding: 0 2rem;
-    box-sizing: border-box;
-  }
-
-  nav > a {
-    justify-self: start;
-  }
-
-  .center {
-    grid-column: 1;
-
-    min-width: auto;
-    grid-template-columns: 1fr auto 1fr;
-    gap: 0.5rem;
-  }
-}
-
 .prev {
   justify-self: start;
 }
@@ -110,8 +97,49 @@ nav {
 
 .prompt {
   font-style: italic;
+  max-width: 40%;
 }
 
-p {
-  max-width: 50%;
+@media (max-width: 600px) {
+  .sketch-grid {
+    column-gap: 1em;
+    row-gap: 0.75em;
+  }
+
+  .sketch-grid a {
+    padding: 0.4em 0;
+    font-size: 0.9em;
+  }
+
+  .main-container {
+    width: 90%;
+  }
+
+  h1 {
+    font-size: 1.8em;
+  }
+
+  nav {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    row-gap: 1.5em;
+    width: 100%;
+    padding: 0 1rem;
+    box-sizing: border-box;
+  }
+
+  nav > a {
+    justify-self: start;
+  }
+
+  .center {
+    grid-template-columns: 1fr auto 1fr;
+    gap: 0.5rem;
+    min-width: auto;
+  }
+
+  .prompt {
+    max-width: none;
+    width: 90%;
+  }
 }
