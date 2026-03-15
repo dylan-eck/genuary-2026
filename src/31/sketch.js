@@ -4,15 +4,21 @@ export default function sketch(p, seed) {
 
   let sh;
   let t = 0;
+  let loading = true;
 
-  p.preload = () => {
+  function load() {
     sh = p.loadShader(
       "../shaders/quad.vert.glsl",
       "../shaders/day31.frag.glsl",
+      () => {
+        loading = false;
+      },
     );
-  };
+  }
 
   p.setup = () => {
+    load();
+
     p.randomSeed(seed);
     p.noiseSeed(seed);
     p.createCanvas(1080, 1920, p.WEBGL);
@@ -21,6 +27,11 @@ export default function sketch(p, seed) {
   };
 
   p.draw = () => {
+    if (loading) {
+      p.clear();
+      return;
+    }
+
     t = (p.frameCount % LOOP_FRAME_COUNT) / LOOP_FRAME_COUNT;
 
     p.shader(sh);

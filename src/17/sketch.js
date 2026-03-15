@@ -9,21 +9,26 @@ export default function sketch(p, seed) {
   let gradShader;
   let colorA;
   let colorB;
+  let loading = true;
 
-  p.preload = () => {
+  function load() {
     gradShader = p.loadShader(
       "../shaders/day17.vert.glsl",
       "../shaders/day17.frag.glsl",
+      () => {
+        loading = false;
+      },
     );
-  };
+  }
 
   p.setup = () => {
+    load();
+
     p.randomSeed(seed);
     p.noiseSeed(seed);
     p.createCanvas(1080, 1350);
     pg = p.createGraphics(p.width, p.height, p.WEBGL);
     pg.camera(-500, -500, -500);
-    p.noLoop();
 
     colorA = {
       mode: "oklch",
@@ -41,52 +46,57 @@ export default function sketch(p, seed) {
   };
 
   p.draw = () => {
-    pg.clear();
-    pg.noStroke();
-    pg.strokeWeight(2);
+    if (loading) {
+      p.clear();
+    } else {
+      pg.clear();
+      pg.noStroke();
+      pg.strokeWeight(2);
 
-    pg.ortho(
-      (SCALE * -p.width) / 2,
-      (SCALE * p.width) / 2,
-      (SCALE * -p.height) / 2,
-      (SCALE * p.height) / 2,
-      0.1,
-      2000,
-    );
+      pg.ortho(
+        (SCALE * -p.width) / 2,
+        (SCALE * p.width) / 2,
+        (SCALE * -p.height) / 2,
+        (SCALE * p.height) / 2,
+        0.1,
+        2000,
+      );
 
-    const lightColor = p.color(255);
-    const lightDir = p.createVector(0.3, 1, 0).normalize();
-    pg.directionalLight(lightColor, lightDir);
-    pg.ambientLight(40);
+      const lightColor = p.color(255);
+      const lightDir = p.createVector(0.3, 1, 0).normalize();
+      pg.directionalLight(lightColor, lightDir);
+      pg.ambientLight(40);
 
-    pg.shader(gradShader);
-    gradShader.setUniform("uInvert", false);
-    gradShader.setUniform("uColorA", [colorA.l, colorA.c, colorA.h]);
-    gradShader.setUniform("uColorB", [colorB.l, colorB.c, colorB.h]);
+      pg.shader(gradShader);
+      gradShader.setUniform("uInvert", false);
+      gradShader.setUniform("uColorA", [colorA.l, colorA.c, colorA.h]);
+      gradShader.setUniform("uColorB", [colorB.l, colorB.c, colorB.h]);
 
-    drawLattice(pg);
+      drawLattice(pg);
 
-    gradShader.setUniform("uInvert", true);
-    gradShader.setUniform("uColorA", [colorA.l, colorA.c, colorA.h]);
-    gradShader.setUniform("uColorB", [colorB.l, colorB.c, colorB.h]);
-    pg.push();
-    pg.translate(-s * t, 0, -s * t);
-    drawLattice(pg);
-    pg.pop();
+      gradShader.setUniform("uInvert", true);
+      gradShader.setUniform("uColorA", [colorA.l, colorA.c, colorA.h]);
+      gradShader.setUniform("uColorB", [colorB.l, colorB.c, colorB.h]);
+      pg.push();
+      pg.translate(-s * t, 0, -s * t);
+      drawLattice(pg);
+      pg.pop();
 
-    p.background(255);
-    p.beginClip();
-    p.rect(
-      MARGIN_PX,
-      MARGIN_PX,
-      p.width - 2 * MARGIN_PX,
-      p.height - 2 * MARGIN_PX,
-    );
-    p.endClip();
-    p.fill("#fffaf0");
-    p.rect(0, 0, p.width, p.height);
+      p.background(255);
+      p.beginClip();
+      p.rect(
+        MARGIN_PX,
+        MARGIN_PX,
+        p.width - 2 * MARGIN_PX,
+        p.height - 2 * MARGIN_PX,
+      );
+      p.endClip();
+      p.fill("#fffaf0");
+      p.rect(0, 0, p.width, p.height);
 
-    p.image(pg, 0, 0, p.width, p.height);
+      p.image(pg, 0, 0, p.width, p.height);
+      p.noLoop();
+    }
   };
 
   p.keyPressed = () => {

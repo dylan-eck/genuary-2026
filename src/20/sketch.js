@@ -19,27 +19,26 @@ export default function sketch(p, seed) {
   let currSquiggleIdx = 0;
 
   let recording = false;
+  let loading = true;
 
-  p.preload = () => {
-    brightShader = p.loadShader(
-      "../shaders/quad.vert.glsl",
-      "../shaders/bright.frag.glsl",
-    );
-    blurH = p.loadShader(
-      "../shaders/quad.vert.glsl",
-      "../shaders/blur.frag.glsl",
-    );
-    blurV = p.loadShader(
-      "../shaders/quad.vert.glsl",
-      "../shaders/blur.frag.glsl",
-    );
-    bloomShader = p.loadShader(
-      "../shaders/quad.vert.glsl",
-      "../shaders/bloom.frag.glsl",
-    );
-  };
+  async function load() {
+    const [bright, bH, bV, bloom] = await Promise.all([
+      p.loadShader("../shaders/quad.vert.glsl", "../shaders/bright.frag.glsl"),
+      p.loadShader("../shaders/quad.vert.glsl", "../shaders/blur.frag.glsl"),
+      p.loadShader("../shaders/quad.vert.glsl", "../shaders/blur.frag.glsl"),
+      p.loadShader("../shaders/quad.vert.glsl", "../shaders/bloom.frag.glsl"),
+    ]);
+
+    brightShader = bright;
+    blurH = bH;
+    blurV = bV;
+    bloomShader = bloom;
+    loading = false;
+  }
 
   p.setup = () => {
+    load();
+
     p.randomSeed(seed);
     p.noiseSeed(seed);
     p.createCanvas(1080, 1920, p.WEBGL);
@@ -64,6 +63,11 @@ export default function sketch(p, seed) {
   };
 
   p.draw = () => {
+    if (loading) {
+      p.clear();
+      return;
+    }
+
     const t = (p.frameCount % LOOP_FRAMES) / LOOP_FRAMES;
 
     const u = (t * NUM_SQUIGGLES) % 1;

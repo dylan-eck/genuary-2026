@@ -10,23 +10,28 @@ export default function sketch(p, seed) {
   let caShader, dispShader;
   let currFrame, prevFrame, dispFrame;
   let palette = [];
+  let loading = true;
 
-  p.preload = () => {
-    caShader = p.loadShader(
-      "../shaders/ca_quad.vert.glsl",
-      "../shaders/mnca.frag.glsl",
-    );
-    dispShader = p.loadShader(
-      "../shaders/ca_quad.vert.glsl",
-      "../shaders/mnca_disp.frag.glsl",
-    );
-  };
+  async function load() {
+    const [ca, disp] = await Promise.all([
+      p.loadShader("../shaders/ca_quad.vert.glsl", "../shaders/mnca.frag.glsl"),
+      p.loadShader(
+        "../shaders/ca_quad.vert.glsl",
+        "../shaders/mnca_disp.frag.glsl",
+      ),
+    ]);
+
+    caShader = ca;
+    dispShader = disp;
+    loading = false;
+  }
 
   p.setup = () => {
+    load();
+
     p.randomSeed(seed);
     p.noiseSeed(seed);
     p.createCanvas(CANVAS_WIDTH, CANVAS_HEIGHT, p.WEBGL);
-    // p.frameRate(10);
 
     const hueShift = 0.61803398875;
     const N = 32;
@@ -99,6 +104,11 @@ export default function sketch(p, seed) {
   };
 
   p.draw = () => {
+    if (loading) {
+      p.clear();
+      return;
+    }
+
     currFrame.begin();
     p.noStroke();
     p.shader(caShader);

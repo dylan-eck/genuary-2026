@@ -69,7 +69,7 @@ export default function sketch(p, seed) {
     p.noiseSeed(seed);
     p.createCanvas(1080, 1920, p.WEBGL);
     p.camera(700, -700, 700, 0, 0, 0);
-    // p.frameRate(10);
+    p.frameRate(30);
 
     gradient = culori.interpolate(["yellow", "red"], "oklch");
 
