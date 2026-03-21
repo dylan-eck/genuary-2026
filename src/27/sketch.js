@@ -1,3 +1,5 @@
+import { loadShaderAsync } from "../lib/util.js";
+
 export default function sketch(p, seed) {
   const CANVAS_WIDTH = 1080;
   const CANVAS_HEIGHT = 1920;
@@ -13,21 +15,20 @@ export default function sketch(p, seed) {
   let loading = true;
 
   async function load() {
-    // this callback chaining is a bit nasty, but I am doing it this to not
-    // over-complicate things we are only loading two shaders
-    caShader = p.loadShader(
-      "../shaders/ca_quad.vert.glsl",
-      "../shaders/mnca.frag.glsl",
-      () => {
-        dispShader = p.loadShader(
-          "../shaders/ca_quad.vert.glsl",
-          "../shaders/mnca_disp.frag.glsl",
-          () => {
-            loading = false;
-          },
-        );
-      },
-    );
+    [caShader, dispShader] = await Promise.all([
+      loadShaderAsync(
+        p,
+        "../shaders/ca_quad.vert.glsl",
+        "../shaders/mnca.frag.glsl",
+      ),
+      loadShaderAsync(
+        p,
+        "../shaders/ca_quad.vert.glsl",
+        "../shaders/mnca_disp.frag.glsl",
+      ),
+    ]);
+
+    loading = false;
   }
 
   p.setup = () => {

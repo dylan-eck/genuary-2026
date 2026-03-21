@@ -1,3 +1,5 @@
+import { loadShaderAsync } from "../lib/util.js";
+
 export default function sketch(p, seed) {
   const APPLY_WARP = true;
   const MARGIN = 40;
@@ -5,22 +7,21 @@ export default function sketch(p, seed) {
   let buffer, warpShader, bgShader, palette;
   let loading = true;
 
-  function load() {
-    // this callback chaining is a bit nasty, but I am doing it this to not
-    // over-complicate things we are only loading two shaders
-    warpShader = p.loadShader(
-      "../shaders/quad.vert.glsl",
-      "../shaders/warp.frag.glsl",
-      () => {
-        bgShader = p.loadShader(
-          "../shaders/quad.vert.glsl",
-          "../shaders/bg.frag.glsl",
-          () => {
-            loading = false;
-          },
-        );
-      },
-    );
+  async function load() {
+    [warpShader, bgShader] = await Promise.all([
+      loadShaderAsync(
+        p,
+        "../shaders/quad.vert.glsl",
+        "../shaders/warp.frag.glsl",
+      ),
+      loadShaderAsync(
+        p,
+        "../shaders/quad.vert.glsl",
+        "../shaders/bg.frag.glsl",
+      ),
+    ]);
+
+    loading = false;
   }
 
   p.setup = () => {
