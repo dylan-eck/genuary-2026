@@ -67,6 +67,7 @@ main > div > svg {
 
 iframe {
   aspect-ratio: 9 / 16 !important;
+  border: none;
 }
 
 canvas,
