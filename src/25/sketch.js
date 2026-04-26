@@ -21,7 +21,7 @@ export default function sketch(p, seed) {
     p.randomSeed(seed);
     p.noiseSeed(seed);
     p.createCanvas(1080, 1920);
-    p.frameRate(10);
+    // p.frameRate(10);
 
     gradient = culori.interpolate(["#5d431c", "#478d26"], "oklch");
 
@@ -49,6 +49,7 @@ export default function sketch(p, seed) {
   };
 
   p.draw = () => {
+    // TODO: could maybe use a quadtree to speed this up
     if (p.frameCount % 8 === 0) {
       if (!trunkComplete) {
         for (const leaf of leaves) {
