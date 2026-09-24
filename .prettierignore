@@ -1,1 +1,8 @@
+# Day 11 is a quine; its source must stay byte-exact
 src/11/sketch.js
+
+# Vendored third-party code
+src/lib/OpenSimplexNoise.js
+
+# Generated data
+src/data/

@@ -1,0 +1,12 @@
+{
+  "name": "genuary-2026",
+  "private": true,
+  "description": "Daily generative art sketches for Genuary 2026",
+  "scripts": {
+    "format": "prettier --write \"src/**/*.{js,html,css}\"",
+    "format:check": "prettier --check \"src/**/*.{js,html,css}\""
+  },
+  "devDependencies": {
+    "prettier": "^3.3.0"
+  }
+}

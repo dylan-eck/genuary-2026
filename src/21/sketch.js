@@ -99,7 +99,6 @@ export default function sketch(p, seed) {
     });
 
     if (candidateIndices.length === 0) {
-      console.log("done!");
       p.noLoop();
       return;
     }
@@ -164,10 +163,6 @@ export default function sketch(p, seed) {
     }
 
     grid = nextGrid;
-
-    if (hasContradiction) {
-      console.log("Contradiction detected; consider restarting.");
-    }
 
     p.background("#f2e5d4");
 

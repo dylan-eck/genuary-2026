@@ -1,5 +1,4 @@
 export default function sketch(p, seed) {
-  const MAX_ITERATIONS = 5000;
   const MIN_BRANCH_WIDTH = 10;
   const MIN_BRANCH_HEIGHT = 10;
   const JITTER_AMOUNT = 0.2;
@@ -21,7 +20,6 @@ export default function sketch(p, seed) {
     p.randomSeed(seed);
     p.noiseSeed(seed);
     p.createCanvas(1080, 1920);
-    // p.frameRate(10);
 
     gradient = culori.interpolate(["#5d431c", "#478d26"], "oklch");
 
@@ -49,7 +47,6 @@ export default function sketch(p, seed) {
   };
 
   p.draw = () => {
-    // TODO: could maybe use a quadtree to speed this up
     if (p.frameCount % 8 === 0) {
       if (!trunkComplete) {
         for (const leaf of leaves) {
@@ -127,14 +124,6 @@ export default function sketch(p, seed) {
         }
       }
     }
-
-    // if (leaves.length >= 10) {
-    //   const frameNum = `${p.frameCount}`.padStart(5, "0");
-    //   p.save(`${frameNum}.png`);
-    // } else {
-    //   p.noLoop();
-    // }
-    // const maxDepth = p.max(...branches.map((b) => b.depth));
 
     p.background(0);
     p.noStroke();

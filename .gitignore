@@ -23,3 +23,9 @@ Icon[]
 Network Trash Folder
 Temporary Items
 .apdisk
+
+# Node
+node_modules/
+
+# misc
+tmp.*
