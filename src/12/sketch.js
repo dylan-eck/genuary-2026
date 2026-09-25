@@ -1,14 +1,11 @@
 export default function sketch(p, seed) {
   const GRID_SIZE = { x: 12, y: 24, z: 12 };
+  const SPACING = 600 / (GRID_SIZE.x - 1); // same on every axis
+  const SCALE = { x: SPACING, y: SPACING, z: SPACING };
   const DISP_SIZE = {
-    x: 600,
-    y: 1200,
-    z: 600,
-  };
-  const SCALE = {
-    x: DISP_SIZE.x / (GRID_SIZE.x - 1),
-    y: DISP_SIZE.y / (GRID_SIZE.y - 1),
-    z: DISP_SIZE.z / (GRID_SIZE.z - 1),
+    x: (GRID_SIZE.x - 1) * SPACING,
+    y: (GRID_SIZE.y - 1) * SPACING,
+    z: (GRID_SIZE.z - 1) * SPACING,
   };
 
   const STEP_SECONDS = 1;
@@ -180,13 +177,6 @@ export default function sketch(p, seed) {
         p.line(p1.x, p1.y, p1.z, p2.x, p2.y, p2.z);
       }
     }
-
-    // if (p.frameCount <= totalLoopFrames) {
-    //   const frameNum = `${p.frameCount}`.padStart(4, "0");
-    //   p.save(`${frameNum}.png`);
-    // } else {
-    //   p.noLoop();
-    // }
   };
 
   function getNeighbors(pt) {
