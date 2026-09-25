@@ -71,7 +71,8 @@ iframe {
 }
 
 canvas,
-iframe {
+iframe,
+main > img {
   display: block;
   max-width: 90vw;
   max-height: 75vh;

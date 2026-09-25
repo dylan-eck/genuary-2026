@@ -1,3 +1,7 @@
+// Particles accelerate along a flow field derived from a photo of me
+// (see tools/img_to_flow_field.py) and leave faint trails that build up the
+// portrait. The flow field isn't published because the photo can be
+// reconstructed from it, so the page shows a pre-rendered output instead.
 export default function sketch(p, seed) {
   let scale;
   let flowField;
