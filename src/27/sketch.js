@@ -16,15 +16,11 @@ export default function sketch(p, seed) {
 
   async function load() {
     [caShader, dispShader] = await Promise.all([
+      loadShaderAsync(p, "../shaders/ca_quad.vert.glsl", "./mnca.frag.glsl"),
       loadShaderAsync(
         p,
         "../shaders/ca_quad.vert.glsl",
-        "../shaders/mnca.frag.glsl",
-      ),
-      loadShaderAsync(
-        p,
-        "../shaders/ca_quad.vert.glsl",
-        "../shaders/mnca_disp.frag.glsl",
+        "./mnca_disp.frag.glsl",
       ),
     ]);
 

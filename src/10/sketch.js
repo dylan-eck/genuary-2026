@@ -9,16 +9,8 @@ export default function sketch(p, seed) {
 
   async function load() {
     [warpShader, bgShader] = await Promise.all([
-      loadShaderAsync(
-        p,
-        "../shaders/quad.vert.glsl",
-        "../shaders/warp.frag.glsl",
-      ),
-      loadShaderAsync(
-        p,
-        "../shaders/quad.vert.glsl",
-        "../shaders/bg.frag.glsl",
-      ),
+      loadShaderAsync(p, "../shaders/quad.vert.glsl", "./warp.frag.glsl"),
+      loadShaderAsync(p, "../shaders/quad.vert.glsl", "./bg.frag.glsl"),
     ]);
 
     loading = false;

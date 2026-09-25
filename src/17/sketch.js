@@ -12,13 +12,9 @@ export default function sketch(p, seed) {
   let loading = true;
 
   function load() {
-    gradShader = p.loadShader(
-      "../shaders/day17.vert.glsl",
-      "../shaders/day17.frag.glsl",
-      () => {
-        loading = false;
-      },
-    );
+    gradShader = p.loadShader("./day17.vert.glsl", "./day17.frag.glsl", () => {
+      loading = false;
+    });
   }
 
   p.setup = () => {

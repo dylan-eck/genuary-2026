@@ -14,8 +14,8 @@ export default function sketch(p, seed) {
 
   function load() {
     raymarchShader = p.loadShader(
-      "../shaders/raymarch.vert.glsl",
-      "../shaders/raymarch.frag.glsl",
+      "./raymarch.vert.glsl",
+      "./raymarch.frag.glsl",
       () => {
         loading = false;
       },

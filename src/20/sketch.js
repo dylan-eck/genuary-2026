@@ -9,7 +9,7 @@ export default function sketch(p, seed) {
   let lastU = 0;
 
   let scene;
-  let blurH, blurV, bloomShader, brightShader;
+  let blurShader, bloomShader, brightShader;
   let brightPass, pass1, pass2, bloomPass;
 
   const LOOP_SECONDS = 30;
@@ -24,27 +24,10 @@ export default function sketch(p, seed) {
   let loading = true;
 
   async function load() {
-    [brightShader, blurH, blurV, bloomShader] = await Promise.all([
-      loadShaderAsync(
-        p,
-        "../shaders/quad.vert.glsl",
-        "../shaders/bright.frag.glsl",
-      ),
-      loadShaderAsync(
-        p,
-        "../shaders/quad.vert.glsl",
-        "../shaders/blur.frag.glsl",
-      ),
-      loadShaderAsync(
-        p,
-        "../shaders/quad.vert.glsl",
-        "../shaders/blur.frag.glsl",
-      ),
-      loadShaderAsync(
-        p,
-        "../shaders/quad.vert.glsl",
-        "../shaders/bloom.frag.glsl",
-      ),
+    [brightShader, blurShader, bloomShader] = await Promise.all([
+      loadShaderAsync(p, "../shaders/quad.vert.glsl", "./bright.frag.glsl"),
+      loadShaderAsync(p, "../shaders/quad.vert.glsl", "./blur.frag.glsl"),
+      loadShaderAsync(p, "../shaders/quad.vert.glsl", "./bloom.frag.glsl"),
     ]);
 
     loading = false;
@@ -114,20 +97,20 @@ export default function sketch(p, seed) {
 
     pass1.begin();
     p.clear();
-    p.shader(blurH);
-    blurH.setUniform("tex0", brightPass);
-    blurH.setUniform("texelSize", [1.0 / p.width, 1.0 / p.height]);
-    blurH.setUniform("direction", [1.0, 0.0]);
+    p.shader(blurShader);
+    blurShader.setUniform("tex0", brightPass);
+    blurShader.setUniform("texelSize", [1.0 / p.width, 1.0 / p.height]);
+    blurShader.setUniform("direction", [1.0, 0.0]);
     setupQuad();
     p.plane(p.width, p.height);
     pass1.end();
 
     pass2.begin();
     p.clear();
-    p.shader(blurV);
-    blurV.setUniform("tex0", pass1);
-    blurV.setUniform("texelSize", [1.0 / p.width, 1.0 / p.height]);
-    blurV.setUniform("direction", [0.0, 1.0]);
+    p.shader(blurShader);
+    blurShader.setUniform("tex0", pass1);
+    blurShader.setUniform("texelSize", [1.0 / p.width, 1.0 / p.height]);
+    blurShader.setUniform("direction", [0.0, 1.0]);
     setupQuad();
     p.plane(p.width, p.height);
     pass2.end();

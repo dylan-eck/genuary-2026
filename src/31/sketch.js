@@ -7,13 +7,9 @@ export default function sketch(p, seed) {
   let loading = true;
 
   function load() {
-    sh = p.loadShader(
-      "../shaders/quad.vert.glsl",
-      "../shaders/day31.frag.glsl",
-      () => {
-        loading = false;
-      },
-    );
+    sh = p.loadShader("../shaders/quad.vert.glsl", "./day31.frag.glsl", () => {
+      loading = false;
+    });
   }
 
   p.setup = () => {

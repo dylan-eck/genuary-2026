@@ -8,7 +8,7 @@ export default function sketch(p, seed) {
   function load() {
     bgShader = p.loadShader(
       "../shaders/quad.vert.glsl",
-      "../shaders/noise.frag.glsl",
+      "./noise.frag.glsl",
       () => {
         loading = false;
       },

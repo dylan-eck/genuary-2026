@@ -55,13 +55,9 @@ export default function sketch(p, seed) {
   }
 
   function load() {
-    fogShader = p.loadShader(
-      "../shaders/fog.vert.glsl",
-      "../shaders/fog.frag.glsl",
-      () => {
-        loading = false;
-      },
-    );
+    fogShader = p.loadShader("./fog.vert.glsl", "./fog.frag.glsl", () => {
+      loading = false;
+    });
   }
 
   p.setup = () => {
