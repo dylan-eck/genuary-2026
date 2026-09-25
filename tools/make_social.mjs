@@ -18,12 +18,15 @@ const CONFIG = JSON.parse(
   readFileSync(join(ROOT, "tools/previews.json"), "utf8"),
 );
 
-// 2 rows of 5 tiles at 4:5 fill GitHub's recommended 1280x640 exactly.
+// 2 rows of 5 tiles at 4:5 fill 1280x640 exactly, so no tile is cropped.
+// Gutters go between tiles only, since an outer border gets unevenly cropped
+// by platforms that display link previews at 1.91:1.
 const COLS = 5;
 const ROWS = 2;
 const TILE_W = 256;
 const TILE_H = 320;
-const GUTTER = 4;
+const GUTTER = 2;
+const GUTTER_COLOR = "#8a8a8a";
 const BACKGROUND = "#1c1c1c";
 const MAX_BYTES = 1024 * 1024; // GitHub's upload limit
 
@@ -66,13 +69,6 @@ function tileArgs(day) {
     "center",
     "-extent",
     `${TILE_W}x${TILE_H}`,
-    // Half a gutter on each side gives full gutters between tiles.
-    "-shave",
-    `${GUTTER / 2}x${GUTTER / 2}`,
-    "-bordercolor",
-    BACKGROUND,
-    "-border",
-    `${GUTTER / 2}x${GUTTER / 2}`,
     ")",
   ];
 }
@@ -83,6 +79,18 @@ for (let r = 0; r < ROWS; r++) {
   rowArgs.push("(", ...rowDays.flatMap(tileArgs), "+append", ")");
 }
 
+// Gutter bars centered on each boundary between tiles.
+const half = GUTTER / 2;
+const gutters = [];
+for (let c = 1; c < COLS; c++) {
+  const x = c * TILE_W;
+  gutters.push(`rectangle ${x - half},0 ${x + half - 1},${ROWS * TILE_H - 1}`);
+}
+for (let r = 1; r < ROWS; r++) {
+  const y = r * TILE_H;
+  gutters.push(`rectangle 0,${y - half} ${COLS * TILE_W - 1},${y + half - 1}`);
+}
+
 execFileSync("magick", [
   ...rowArgs,
   "-append",
@@ -91,6 +99,9 @@ execFileSync("magick", [
   BACKGROUND,
   "-alpha",
   "remove",
+  "-fill",
+  GUTTER_COLOR,
+  ...gutters.flatMap((g) => ["-draw", g]),
   "-quality",
   "88",
   OUT,
