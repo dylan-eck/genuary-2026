@@ -16,3 +16,25 @@ following command at the root of the repository:
 `python -m http.server 8000 --directory src`
 
 Then open a browser window and navigate to http://localhost:8000/
+
+## License
+
+Copyright (c) 2026 Dylan Eck.
+
+- **Code** is licensed under the
+  [PolyForm Noncommercial License 1.0.0](LICENSE.md). You may use, modify, and
+  share it, including running the sketches, only for non-commercial purposes.
+- **Artwork** (images, videos, and other visual output from the sketches) is
+  licensed under
+  [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/).
+
+For commercial use of either, please get in touch.
+
+### Third-party
+
+- `src/lib/OpenSimplexNoise.js` is adapted from
+  [joshforisha/open-simplex-noise-js](https://github.com/joshforisha/open-simplex-noise-js)
+  and remains under its original license.
+- The Google Sans Code font in `src/11/assets/fonts/` is licensed under the
+  [SIL Open Font License 1.1](src/11/assets/fonts/Google_Sans_Code/OFL.txt).
+- p5.js, p5.js-svg, and culori are loaded from CDNs under their own licenses.

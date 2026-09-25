@@ -1,6 +1,7 @@
 {
   "name": "genuary-2026",
   "private": true,
+  "license": "PolyForm-Noncommercial-1.0.0",
   "description": "Daily generative art sketches for Genuary 2026",
   "scripts": {
     "format": "prettier --write \"src/**/*.{js,html,css}\"",
