@@ -2,7 +2,6 @@
 precision highp float;
 
 uniform sampler2D u_ca_state;
-uniform vec3 u_palette[32];
 in vec2 uv;
 out vec4 frag_color;
 
@@ -14,6 +13,4 @@ void main() {
     } else {
         frag_color = vec4(0.0, 0.0, 0.0, 1.0);
     }
-
-
 }

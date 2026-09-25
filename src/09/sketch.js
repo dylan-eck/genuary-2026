@@ -34,8 +34,8 @@ export default function sketch(p, seed) {
     const N = 32;
     for (let i = 0; i < N; i++) {
       const h = (i * hueShift) % 1.0;
-      const s = 0.5 + 0.2 * Math.random();
-      const v = 0.6 + 0.2 * Math.random();
+      const s = 0.5 + 0.2 * p.random();
+      const v = 0.6 + 0.2 * p.random();
 
       const color = { mode: "hsv", h: h * 360, s: s, v: v };
       const rgb = culori.rgb(color);

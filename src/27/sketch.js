@@ -11,7 +11,6 @@ export default function sketch(p, seed) {
 
   let caShader, dispShader;
   let currFrame, prevFrame, dispFrame;
-  let palette = [];
   let loading = true;
 
   async function load() {
@@ -33,20 +32,6 @@ export default function sketch(p, seed) {
     p.randomSeed(seed);
     p.noiseSeed(seed);
     p.createCanvas(CANVAS_WIDTH, CANVAS_HEIGHT, p.WEBGL);
-
-    const hueShift = 0.61803398875;
-    const N = 32;
-
-    for (let i = 0; i < N; i++) {
-      const h = (i * hueShift) % 1.0;
-      const s = 0.5 + 0.2 * Math.random();
-      const v = 0.6 + 0.2 * Math.random();
-
-      const color = { mode: "hsv", h: h * 360, s: s, v: v };
-      const rgb = culori.rgb(color);
-
-      palette.push(rgb.r, rgb.g, rgb.b);
-    }
 
     prevFrame = p.createFramebuffer({
       width: DOMAIN_WIDTH,
@@ -123,7 +108,6 @@ export default function sketch(p, seed) {
     p.noStroke();
     p.shader(dispShader);
     dispShader.setUniform("u_ca_state", currFrame);
-    dispShader.setUniform("u_palette", palette);
     p.plane(p.width, p.height);
     dispFrame.end();
 
