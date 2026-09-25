@@ -96,6 +96,18 @@ function toThumbnail(png, outFile) {
   );
 }
 
+// Extra time allowed beyond a day's waitMs before giving up on it. Some page
+// calls have no timeout of their own and hang if a sketch freezes the tab.
+const TIMEOUT_MARGIN_MS = 30000;
+
+function withTimeout(promise, ms) {
+  let timer;
+  const timeout = new Promise((_, reject) => {
+    timer = setTimeout(() => reject(new Error(`timed out after ${ms}ms`)), ms);
+  });
+  return Promise.race([promise, timeout]).finally(() => clearTimeout(timer));
+}
+
 async function capture(browser, baseUrl, day) {
   const { seed, waitMs = CONFIG.defaults.waitMs } = CONFIG.days[day] ?? {};
   const page = await browser.newPage({
@@ -106,6 +118,19 @@ async function capture(browser, baseUrl, day) {
   const errors = [];
   page.on("pageerror", (e) => errors.push(e.message));
 
+  try {
+    const usedSeed = await withTimeout(
+      screenshotDay(page, baseUrl, day, seed, waitMs),
+      waitMs + TIMEOUT_MARGIN_MS,
+    );
+    return { usedSeed, errors };
+  } finally {
+    // A frozen tab can also stall close(), so don't wait on it forever.
+    await withTimeout(page.close(), 5000).catch(() => {});
+  }
+}
+
+async function screenshotDay(page, baseUrl, day, seed, waitMs) {
   const query = seed === undefined ? "" : `?seed=${seed}`;
   await page.goto(`${baseUrl}/${day}/${query}`, { waitUntil: "load" });
   await page.waitForTimeout(waitMs);
@@ -125,9 +150,7 @@ async function capture(browser, baseUrl, day) {
   });
   toThumbnail(png, join(OUT, `${day}.webp`));
 
-  const usedSeed = new URL(page.url()).searchParams.get("seed") ?? "-";
-  await page.close();
-  return { usedSeed, errors };
+  return new URL(page.url()).searchParams.get("seed") ?? "-";
 }
 
 const allDays = readdirSync(SRC)
@@ -142,13 +165,15 @@ const browser = await chromium.launch({ channel: "chrome" });
 
 try {
   for (const day of days) {
+    // Print the day first so a slow or stuck day is visible while it runs.
+    process.stdout.write(`${day}  `);
     try {
       const { usedSeed, errors } = await capture(browser, baseUrl, day);
       const pinned = CONFIG.days[day]?.seed !== undefined ? "" : " (random)";
-      console.log(`${day}  seed ${usedSeed}${pinned}`);
+      console.log(`seed ${usedSeed}${pinned}`);
       for (const e of errors) console.log(`    page error: ${e}`);
     } catch (e) {
-      console.log(`${day}  FAILED: ${e.message}`);
+      console.log(`FAILED: ${e.message}`);
     }
   }
 } finally {

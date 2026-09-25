@@ -6,7 +6,8 @@
   "scripts": {
     "format": "prettier --write \"src/**/*.{js,html,css}\"",
     "format:check": "prettier --check \"src/**/*.{js,html,css}\"",
-    "previews": "node tools/capture_previews.mjs"
+    "previews": "node tools/capture_previews.mjs",
+    "social": "node tools/make_social.mjs"
   },
   "devDependencies": {
     "playwright-core": "^1.63.0",
