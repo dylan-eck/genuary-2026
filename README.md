@@ -20,6 +20,20 @@ January. You can learn more about Genuary at
 [genuary.art](https://genuary.art/). All of the pieces are also available at
 [dylan-eck.github.io/genuary-2026](https://dylan-eck.github.io/genuary-2026/).
 
+## Built with
+
+- [p5.js](https://p5js.org/) for drawing, animation, and input in most pieces
+- Custom GLSL shaders for the GPU-heavy pieces (9 of the 31), including
+  raymarching (07), cellular automata (09, 27), and a multi-pass bloom pipeline
+  (20)
+- [culori](https://culorijs.org/) for OKLCH palettes and color interpolation
+- [p5.js-svg](https://github.com/zenozeng/p5.js-svg) for vector output (22, 30)
+- Plain HTML/CSS with no canvas for day 28
+- Hosted on GitHub Pages. There is no build step, and libraries load from CDNs.
+
+Dev tooling: Prettier for formatting, and Playwright scripts in `tools/` that
+capture the preview images and README thumbnails.
+
 ## Running locally
 
 You can run this repository locally using python. After cloning, run the
