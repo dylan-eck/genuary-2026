@@ -1,120 +1,25 @@
-# Dylan's Genuary 2026 Art
+# Genuary 2026 Art
 
-<table>
-  <tr>
-    <td align="center">
-      <a href="https://dylan-eck.github.io/genuary-2026/01/"><img src="src/previews/01.webp" width="120" alt="Day 01"></a>
-    </td>
-    <td align="center">
-      <a href="https://dylan-eck.github.io/genuary-2026/02/"><img src="src/previews/02.webp" width="120" alt="Day 02"></a>
-    </td>
-    <td align="center">
-      <a href="https://dylan-eck.github.io/genuary-2026/03/"><img src="src/previews/03.webp" width="120" alt="Day 03"></a>
-    </td>
-    <td align="center">
-      <a href="https://dylan-eck.github.io/genuary-2026/04/"><img src="src/previews/04.webp" width="120" alt="Day 04"></a>
-    </td>
-    <td align="center">
-      <a href="https://dylan-eck.github.io/genuary-2026/05/"><img src="src/previews/05.webp" width="120" alt="Day 05"></a>
-    </td>
-    <td align="center">
-      <a href="https://dylan-eck.github.io/genuary-2026/06/"><img src="src/previews/06.webp" width="120" alt="Day 06"></a>
-    </td>
-  </tr>
-  <tr>
-    <td align="center">
-      <a href="https://dylan-eck.github.io/genuary-2026/07/"><img src="src/previews/07.webp" width="120" alt="Day 07"></a>
-    </td>
-    <td align="center">
-      <a href="https://dylan-eck.github.io/genuary-2026/08/"><img src="src/previews/08.webp" width="120" alt="Day 08"></a>
-    </td>
-    <td align="center">
-      <a href="https://dylan-eck.github.io/genuary-2026/09/"><img src="src/previews/09.webp" width="120" alt="Day 09"></a>
-    </td>
-    <td align="center">
-      <a href="https://dylan-eck.github.io/genuary-2026/10/"><img src="src/previews/10.webp" width="120" alt="Day 10"></a>
-    </td>
-    <td align="center">
-      <a href="https://dylan-eck.github.io/genuary-2026/11/"><img src="src/previews/11.webp" width="120" alt="Day 11"></a>
-    </td>
-    <td align="center">
-      <a href="https://dylan-eck.github.io/genuary-2026/12/"><img src="src/previews/12.webp" width="120" alt="Day 12"></a>
-    </td>
-  </tr>
-  <tr>
-    <td align="center">
-      <a href="https://dylan-eck.github.io/genuary-2026/13/"><img src="src/previews/13.webp" width="120" alt="Day 13"></a>
-    </td>
-    <td align="center">
-      <a href="https://dylan-eck.github.io/genuary-2026/14/"><img src="src/previews/14.webp" width="120" alt="Day 14"></a>
-    </td>
-    <td align="center">
-      <a href="https://dylan-eck.github.io/genuary-2026/15/"><img src="src/previews/15.webp" width="120" alt="Day 15"></a>
-    </td>
-    <td align="center">
-      <a href="https://dylan-eck.github.io/genuary-2026/16/"><img src="src/previews/16.webp" width="120" alt="Day 16"></a>
-    </td>
-    <td align="center">
-      <a href="https://dylan-eck.github.io/genuary-2026/17/"><img src="src/previews/17.webp" width="120" alt="Day 17"></a>
-    </td>
-    <td align="center">
-      <a href="https://dylan-eck.github.io/genuary-2026/18/"><img src="src/previews/18.webp" width="120" alt="Day 18"></a>
-    </td>
-  </tr>
-  <tr>
-    <td align="center">
-      <a href="https://dylan-eck.github.io/genuary-2026/19/"><img src="src/previews/19.webp" width="120" alt="Day 19"></a>
-    </td>
-    <td align="center">
-      <a href="https://dylan-eck.github.io/genuary-2026/20/"><img src="src/previews/20.webp" width="120" alt="Day 20"></a>
-    </td>
-    <td align="center">
-      <a href="https://dylan-eck.github.io/genuary-2026/21/"><img src="src/previews/21.webp" width="120" alt="Day 21"></a>
-    </td>
-    <td align="center">
-      <a href="https://dylan-eck.github.io/genuary-2026/22/"><img src="src/previews/22.webp" width="120" alt="Day 22"></a>
-    </td>
-    <td align="center">
-      <a href="https://dylan-eck.github.io/genuary-2026/23/"><img src="src/previews/23.webp" width="120" alt="Day 23"></a>
-    </td>
-    <td align="center">
-      <a href="https://dylan-eck.github.io/genuary-2026/24/"><img src="src/previews/24.webp" width="120" alt="Day 24"></a>
-    </td>
-  </tr>
-  <tr>
-    <td align="center">
-      <a href="https://dylan-eck.github.io/genuary-2026/25/"><img src="src/previews/25.webp" width="120" alt="Day 25"></a>
-    </td>
-    <td align="center">
-      <a href="https://dylan-eck.github.io/genuary-2026/26/"><img src="src/previews/26.webp" width="120" alt="Day 26"></a>
-    </td>
-    <td align="center">
-      <a href="https://dylan-eck.github.io/genuary-2026/27/"><img src="src/previews/27.webp" width="120" alt="Day 27"></a>
-    </td>
-    <td align="center">
-      <a href="https://dylan-eck.github.io/genuary-2026/28/"><img src="src/previews/28.webp" width="120" alt="Day 28"></a>
-    </td>
-    <td align="center">
-      <a href="https://dylan-eck.github.io/genuary-2026/29/"><img src="src/previews/29.webp" width="120" alt="Day 29"></a>
-    </td>
-    <td align="center">
-      <a href="https://dylan-eck.github.io/genuary-2026/30/"><img src="src/previews/30.webp" width="120" alt="Day 30"></a>
-    </td>
-  </tr>
-  <tr>
-    <td align="center">
-      <a href="https://dylan-eck.github.io/genuary-2026/31/"><img src="src/previews/31.webp" width="120" alt="Day 31"></a>
-    </td>
-  </tr>
-</table>
+<p align="center">
+31 generative artworks I created for Genuary 2026. Click any piece to view it
+live.
+</p>
+
+<p align="center">
+<a href="https://dylan-eck.github.io/genuary-2026/01/"><img src=".github/readme-thumbs/01.webp" height="150" hspace="2" alt="Day 01"></a><a href="https://dylan-eck.github.io/genuary-2026/02/"><img src=".github/readme-thumbs/02.webp" height="150" hspace="2" alt="Day 02"></a><a href="https://dylan-eck.github.io/genuary-2026/03/"><img src=".github/readme-thumbs/03.webp" height="150" hspace="2" alt="Day 03"></a><a href="https://dylan-eck.github.io/genuary-2026/04/"><img src=".github/readme-thumbs/04.webp" height="150" hspace="2" alt="Day 04"></a><a href="https://dylan-eck.github.io/genuary-2026/05/"><img src=".github/readme-thumbs/05.webp" height="150" hspace="2" alt="Day 05"></a><br>
+<a href="https://dylan-eck.github.io/genuary-2026/06/"><img src=".github/readme-thumbs/06.webp" height="150" hspace="12" alt="Day 06"></a><a href="https://dylan-eck.github.io/genuary-2026/07/"><img src=".github/readme-thumbs/07.webp" height="150" hspace="13" alt="Day 07"></a><a href="https://dylan-eck.github.io/genuary-2026/08/"><img src=".github/readme-thumbs/08.webp" height="150" hspace="13" alt="Day 08"></a><a href="https://dylan-eck.github.io/genuary-2026/09/"><img src=".github/readme-thumbs/09.webp" height="150" hspace="12" alt="Day 09"></a><a href="https://dylan-eck.github.io/genuary-2026/10/"><img src=".github/readme-thumbs/10.webp" height="150" hspace="12" alt="Day 10"></a><br>
+<a href="https://dylan-eck.github.io/genuary-2026/11/"><img src=".github/readme-thumbs/11.webp" height="150" hspace="7" alt="Day 11"></a><a href="https://dylan-eck.github.io/genuary-2026/12/"><img src=".github/readme-thumbs/12.webp" height="150" hspace="8" alt="Day 12"></a><a href="https://dylan-eck.github.io/genuary-2026/13/"><img src=".github/readme-thumbs/13.webp" height="150" hspace="8" alt="Day 13"></a><a href="https://dylan-eck.github.io/genuary-2026/14/"><img src=".github/readme-thumbs/14.webp" height="150" hspace="8" alt="Day 14"></a><a href="https://dylan-eck.github.io/genuary-2026/15/"><img src=".github/readme-thumbs/15.webp" height="150" hspace="7" alt="Day 15"></a><br>
+<a href="https://dylan-eck.github.io/genuary-2026/16/"><img src=".github/readme-thumbs/16.webp" height="150" hspace="3" alt="Day 16"></a><a href="https://dylan-eck.github.io/genuary-2026/17/"><img src=".github/readme-thumbs/17.webp" height="150" hspace="4" alt="Day 17"></a><a href="https://dylan-eck.github.io/genuary-2026/18/"><img src=".github/readme-thumbs/18.webp" height="150" hspace="4" alt="Day 18"></a><a href="https://dylan-eck.github.io/genuary-2026/19/"><img src=".github/readme-thumbs/19.webp" height="150" hspace="3" alt="Day 19"></a><a href="https://dylan-eck.github.io/genuary-2026/20/"><img src=".github/readme-thumbs/20.webp" height="150" hspace="3" alt="Day 20"></a><br>
+<a href="https://dylan-eck.github.io/genuary-2026/21/"><img src=".github/readme-thumbs/21.webp" height="150" hspace="3" alt="Day 21"></a><a href="https://dylan-eck.github.io/genuary-2026/22/"><img src=".github/readme-thumbs/22.webp" height="150" hspace="4" alt="Day 22"></a><a href="https://dylan-eck.github.io/genuary-2026/23/"><img src=".github/readme-thumbs/23.webp" height="150" hspace="4" alt="Day 23"></a><a href="https://dylan-eck.github.io/genuary-2026/24/"><img src=".github/readme-thumbs/24.webp" height="150" hspace="4" alt="Day 24"></a><a href="https://dylan-eck.github.io/genuary-2026/25/"><img src=".github/readme-thumbs/25.webp" height="150" hspace="3" alt="Day 25"></a><br>
+<a href="https://dylan-eck.github.io/genuary-2026/26/"><img src=".github/readme-thumbs/26.webp" height="150" hspace="2" alt="Day 26"></a><a href="https://dylan-eck.github.io/genuary-2026/27/"><img src=".github/readme-thumbs/27.webp" height="150" hspace="3" alt="Day 27"></a><a href="https://dylan-eck.github.io/genuary-2026/28/"><img src=".github/readme-thumbs/28.webp" height="150" hspace="2" alt="Day 28"></a><a href="https://dylan-eck.github.io/genuary-2026/29/"><img src=".github/readme-thumbs/29.webp" height="150" hspace="2" alt="Day 29"></a><a href="https://dylan-eck.github.io/genuary-2026/30/"><img src=".github/readme-thumbs/30.webp" height="150" hspace="2" alt="Day 30"></a><a href="https://dylan-eck.github.io/genuary-2026/31/"><img src=".github/readme-thumbs/31.webp" height="150" hspace="2" alt="Day 31"></a>
+</p>
 
 ## About
 
-This repository contains generative artworks that I created for Genuary 2026. You can check out all 31 pieces I created
-at [dylan-eck.github.io/genuary-2026](https://dylan-eck.github.io/genuary-2026/).
 Genuary is a month-long generative art challenge that takes place each year in
 January. You can learn more about Genuary at
-[genuary.art](https://genuary.art/).
+[genuary.art](https://genuary.art/). All of the pieces are also available at
+[dylan-eck.github.io/genuary-2026](https://dylan-eck.github.io/genuary-2026/).
 
 ## Running locally
 
