@@ -1,3 +1,7 @@
+// Genuary 2026 day 2
+//
+// Prompt: "Twelve principles of animation."
+
 export default function sketch(p, seed) {
   const MARGIN = 50;
   const NUM_BALLS = 22;

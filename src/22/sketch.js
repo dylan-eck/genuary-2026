@@ -1,3 +1,7 @@
+// Genuary 2026 day 22
+//
+// Prompt: "Pen plotter ready."
+
 export default function sketch(p, seed) {
   const PAPER_W_IN = 9;
   const PAPER_H_IN = 12;

@@ -1,3 +1,7 @@
+// Genuary 2026 day 23
+//
+// Prompt: "Transparency. Explore the concept of transparency."
+
 export default function sketch(p, seed) {
   const RECORD_FRAME_COUNT = 60 * 90;
 

@@ -1,3 +1,8 @@
+// Genuary 2026 day 17
+//
+// Prompt: "Wallpaper group. There are only 17 ways to cover a plane with a
+// repeating pattern, choose your favourite on this page: Wallpaper group."
+
 export default function sketch(p, seed) {
   const MARGIN_PX = 54;
   const SCALE = 2;

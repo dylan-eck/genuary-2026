@@ -1,3 +1,7 @@
+// Genuary 2026 day 5
+//
+// Prompt: "Write 'Genuary'. Avoid using a font."
+
 export default function sketch(p, seed) {
   const MARGIN = 40;
 
@@ -24,8 +28,6 @@ export default function sketch(p, seed) {
     const gapPercent = 0.2;
     const cellWidth = overallWidth / funcs.length;
 
-    const x0 = 0;
-    const y0 = 0;
     const w = cellWidth * (1 - gapPercent);
     const h = overallHeight;
     const g = cellWidth * gapPercent;

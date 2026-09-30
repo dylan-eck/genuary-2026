@@ -1,3 +1,7 @@
+// Genuary 2026 day 30
+//
+// Prompt: "Its not a bug, its a feature."
+
 export default function sketch(p, seed) {
   const PAPER_W_IN = 9;
   const PAPER_H_IN = 12;

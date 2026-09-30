@@ -1,3 +1,7 @@
+// Genuary 2026 day 16
+//
+// Prompt: "Order and disorder."
+
 export default function sketch(p, seed) {
   const MARGIN_PX = 80;
   const NUM_PATHS = 80;

@@ -1,3 +1,8 @@
+// Genuary 2026 day 21
+//
+// Prompt: "Bauhaus Poster. Create a poster design inspired by the German
+// art school Bauhaus."
+
 export default function sketch(p, seed) {
   let grid = [];
   const cellSize = 216;

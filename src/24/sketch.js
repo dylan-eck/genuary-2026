@@ -1,3 +1,7 @@
+// Genuary 2026 day 24
+//
+// Prompt: "Perfectionist's nightmare."
+
 export default function sketch(p, seed) {
   p.setup = () => {
     p.randomSeed(seed);

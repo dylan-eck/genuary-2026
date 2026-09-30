@@ -1,3 +1,8 @@
+// Genuary 2026 day 27
+//
+// Prompt: "Lifeform. A shape or structure that behaves as if it's alive or
+// growing."
+
 import { loadShaderAsync } from "../lib/util.js";
 
 export default function sketch(p, seed) {

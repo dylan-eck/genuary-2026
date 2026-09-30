@@ -1,3 +1,7 @@
+// Genuary 2026 day 15
+//
+// Prompt: "Create an invisible object where only the shadows can be seen."
+
 export default function sketch(p, seed) {
   let res, numRows, numCols, grid;
   let rot = 0;

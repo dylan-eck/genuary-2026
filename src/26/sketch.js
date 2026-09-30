@@ -1,3 +1,8 @@
+// Genuary 2026 day 26
+//
+// Prompt: "Recursive Grids. Split the canvas into a grid of some kind and
+// recurse on each cell again and again."
+
 export default function sketch(p, seed) {
   const RECORD_FRAME_COUNT = 60 * 60;
 

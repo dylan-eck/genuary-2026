@@ -1,3 +1,7 @@
+// Genuary 2026 day 9
+//
+// Prompt: "Crazy automaton. Cellular automata with crazy rules."
+
 import { loadShaderAsync } from "../lib/util.js";
 
 export default function sketch(p, seed) {

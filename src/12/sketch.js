@@ -1,3 +1,7 @@
+// Genuary 2026 day 12
+//
+// Prompt: "Boxes only."
+
 export default function sketch(p, seed) {
   const GRID_SIZE = { x: 12, y: 24, z: 12 };
   const SPACING = 600 / (GRID_SIZE.x - 1); // same on every axis

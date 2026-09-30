@@ -1,3 +1,7 @@
+// Genuary 2026 day 31
+//
+// Prompt: "GLSL day. Create an artwork using only shaders."
+
 export default function sketch(p, seed) {
   const LOOP_FRAME_COUNT = 30 * 60;
   const FRAME_RATE = 60;

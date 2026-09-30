@@ -1,3 +1,7 @@
+// Genuary 2026 day 14
+//
+// Prompt: "Everything fits perfectly."
+
 export default function sketch(p, seed) {
   const CAMERA_DISTANCE = 800;
   const MIN_ACCEL = 0.00002;

@@ -1,7 +1,12 @@
-// Particles accelerate along a flow field derived from a photo of me
-// (see tools/img_to_flow_field.py) and leave faint trails that build up the
-// portrait. The flow field isn't published because the photo can be
-// reconstructed from it, so the page shows a pre-rendered output instead.
+// Genuary 2026 day 13
+//
+// Prompt: "Self portrait. For example, get started with a very basic human
+// face, a few circles or oval shapes. How far can you improve this by
+// adding features that actually look like you. Try adding eyes, eyelashes,
+// hair, and make a few parameters or colors variable. Even though you are
+// aiming for a self portrait, it might be fun to render some random
+// variations as well."
+
 export default function sketch(p, seed) {
   let scale;
   let flowField;

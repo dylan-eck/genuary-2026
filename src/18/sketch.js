@@ -1,3 +1,8 @@
+// Genuary 2026 day 18
+//
+// Prompt: "Unexpected path. Draw a route that changes direction based on
+// one very simple rule."
+
 export default function sketch(p, seed) {
   const NUM_DIRS = 5;
   const MARGIN_PX = 50;

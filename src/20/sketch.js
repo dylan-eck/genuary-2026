@@ -1,3 +1,7 @@
+// Genuary 2026 day 20
+//
+// Prompt: "One line. An artwork that is made of a single line only."
+
 import { loadShaderAsync } from "../lib/util.js";
 
 export default function sketch(p, seed) {

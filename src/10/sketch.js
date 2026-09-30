@@ -1,3 +1,7 @@
+// Genuary 2026 day 10
+//
+// Prompt: "Polar coordinates."
+
 import { loadShaderAsync } from "../lib/util.js";
 
 export default function sketch(p, seed) {

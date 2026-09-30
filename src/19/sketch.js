@@ -1,3 +1,7 @@
+// Genuary 2026 day 19
+//
+// Prompt: "16x16"
+
 export default function sketch(p, seed) {
   const MARGIN_PX = 80;
   let size;

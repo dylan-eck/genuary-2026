@@ -1,3 +1,8 @@
+// Genuary 2026 day 6
+//
+// Prompt: "Lights on/off. Make something that changes when you switch on or
+// off the 'digital' lights."
+
 export default function sketch(p, seed) {
   const NUM_BUGS = 50;
   const BASE_SPEED = 0.5;

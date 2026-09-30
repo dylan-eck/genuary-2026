@@ -1,3 +1,7 @@
+// Genuary 2026 day 8
+//
+// Prompt: "A City. Create a generative metropolis."
+
 export default function sketch(p, seed) {
   const LOOP_TIME = 30;
   const FRAME_RATE = 60;

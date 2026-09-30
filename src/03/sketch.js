@@ -1,3 +1,8 @@
+// Genuary 2026 day 3
+//
+// Prompt: "Fibonacci forever. Create a work that uses the Fibonacci
+// sequence in some way."
+
 export default function sketch(p, seed) {
   const MARGIN = 20;
 

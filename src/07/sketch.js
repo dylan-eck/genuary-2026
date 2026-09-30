@@ -1,3 +1,7 @@
+// Genuary 2026 day 7
+//
+// Prompt: "Boolean algebra. Get inspired by Boolean algebra, in any way."
+
 export default function sketch(p, seed) {
   let raymarchShader;
 

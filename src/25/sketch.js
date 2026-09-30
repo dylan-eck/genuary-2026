@@ -1,3 +1,8 @@
+// Genuary 2026 day 25
+//
+// Prompt: "Organic Geometry. Forms that look or act organic but are
+// constructed entirely from geometric shapes."
+
 export default function sketch(p, seed) {
   const MIN_BRANCH_WIDTH = 10;
   const MIN_BRANCH_HEIGHT = 10;
