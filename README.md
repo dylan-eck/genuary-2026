@@ -26,6 +26,42 @@ you can press <kbd>Space</kbd> on a piece's page to generate a new variation.
 The seed is kept in the URL (`?seed=...`), so you can share or revisit a
 specific variation.
 
+## Pieces
+
+| Day | Prompt                                                                                                     | Link                                                 |
+| --- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------- |
+| 01  | One color, one shape.                                                                                      | [View](https://dylan-eck.github.io/genuary-2026/01/) |
+| 02  | Twelve principles of animation.                                                                            | [View](https://dylan-eck.github.io/genuary-2026/02/) |
+| 03  | Fibonacci forever. Create a work that uses the Fibonacci sequence in some way.                             | [View](https://dylan-eck.github.io/genuary-2026/03/) |
+| 04  | Lowres. An image or graphic with low resolution, where details are simplified or pixelated.                | [View](https://dylan-eck.github.io/genuary-2026/04/) |
+| 05  | Write “Genuary”. Avoid using a font.                                                                       | [View](https://dylan-eck.github.io/genuary-2026/05/) |
+| 06  | Lights on/off. Make something that changes when you switch on or off the “digital” lights.                 | [View](https://dylan-eck.github.io/genuary-2026/06/) |
+| 07  | Boolean algebra. Get inspired by Boolean algebra, in any way.                                              | [View](https://dylan-eck.github.io/genuary-2026/07/) |
+| 08  | A City. Create a generative metropolis.                                                                    | [View](https://dylan-eck.github.io/genuary-2026/08/) |
+| 09  | Crazy automaton. Cellular automata with crazy rules.                                                       | [View](https://dylan-eck.github.io/genuary-2026/09/) |
+| 10  | Polar coordinates.                                                                                         | [View](https://dylan-eck.github.io/genuary-2026/10/) |
+| 11  | Quine. A Quine is a form of code poetry, it's a computer program that outputs exactly its own source code. | [View](https://dylan-eck.github.io/genuary-2026/11/) |
+| 12  | Boxes only.                                                                                                | [View](https://dylan-eck.github.io/genuary-2026/12/) |
+| 13  | Self portrait.                                                                                             | [View](https://dylan-eck.github.io/genuary-2026/13/) |
+| 14  | Everything fits perfectly.                                                                                 | [View](https://dylan-eck.github.io/genuary-2026/14/) |
+| 15  | Create an invisible object where only the shadows can be seen.                                             | [View](https://dylan-eck.github.io/genuary-2026/15/) |
+| 16  | Order and disorder.                                                                                        | [View](https://dylan-eck.github.io/genuary-2026/16/) |
+| 17  | Wallpaper group. There are only 17 ways to cover a plane with a repeating pattern.                         | [View](https://dylan-eck.github.io/genuary-2026/17/) |
+| 18  | Unexpected path. Draw a route that changes direction based on one very simple rule.                        | [View](https://dylan-eck.github.io/genuary-2026/18/) |
+| 19  | 16x16                                                                                                      | [View](https://dylan-eck.github.io/genuary-2026/19/) |
+| 20  | One line. An artwork that is made of a single line only.                                                   | [View](https://dylan-eck.github.io/genuary-2026/20/) |
+| 21  | Bauhaus Poster. Create a poster design inspired by the German art school Bauhaus.                          | [View](https://dylan-eck.github.io/genuary-2026/21/) |
+| 22  | Pen plotter ready.                                                                                         | [View](https://dylan-eck.github.io/genuary-2026/22/) |
+| 23  | Transparency. Explore the concept of transparency.                                                         | [View](https://dylan-eck.github.io/genuary-2026/23/) |
+| 24  | Perfectionist's nightmare.                                                                                 | [View](https://dylan-eck.github.io/genuary-2026/24/) |
+| 25  | Organic Geometry. Forms that look or act organic but are constructed entirely from geometric shapes.       | [View](https://dylan-eck.github.io/genuary-2026/25/) |
+| 26  | Recursive Grids. Split the canvas into a grid of some kind and recurse on each cell again and again.       | [View](https://dylan-eck.github.io/genuary-2026/26/) |
+| 27  | Lifeform. A shape or structure that behaves as if it's alive or growing.                                   | [View](https://dylan-eck.github.io/genuary-2026/27/) |
+| 28  | No libraries, no canvas, only HTML elements.                                                               | [View](https://dylan-eck.github.io/genuary-2026/28/) |
+| 29  | Genetic evolution and mutation.                                                                            | [View](https://dylan-eck.github.io/genuary-2026/29/) |
+| 30  | Its not a bug, its a feature.                                                                              | [View](https://dylan-eck.github.io/genuary-2026/30/) |
+| 31  | GLSL day. Create an artwork using only shaders.                                                            | [View](https://dylan-eck.github.io/genuary-2026/31/) |
+
 ## Built with
 
 - [p5.js](https://p5js.org/) for drawing, animation, and input in most pieces
