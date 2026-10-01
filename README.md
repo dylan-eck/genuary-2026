@@ -26,6 +26,22 @@ you can press <kbd>Space</kbd> on a piece's page to generate a new variation.
 The seed is kept in the URL (`?seed=...`), so you can share or revisit a
 specific variation.
 
+## Highlights
+
+- [**Day 07**](https://dylan-eck.github.io/genuary-2026/07/): Ray-marched 3D scene, rendered entirely in a fragment
+  shader using signed distance functions and smooth unions.
+- [**Day 11**](https://dylan-eck.github.io/genuary-2026/11/): A self-printing quine. The sketch draws its own source
+  code as part of the artwork.
+- [**Day 15**](https://dylan-eck.github.io/genuary-2026/15/): Falling-sand simulation around an invisible rotating
+  object. The object is never drawn and only shows up in how the sand piles.
+- [**Day 20**](https://dylan-eck.github.io/genuary-2026/20/): Custom GLSL multi-pass bloom pipeline: a bright
+  pass, a two-pass Gaussian blur, and a final composite.
+- [**Day 25**](https://dylan-eck.github.io/genuary-2026/25/): A tree grown with the space colonization algorithm,
+  where branches extend toward randomly scattered attractor points.
+- [**Day 27**](https://dylan-eck.github.io/genuary-2026/27/): Multiple-neighborhood cellular automaton running on the
+  GPU. Each cell's update depends on two neighborhoods, an outer ring and an
+  inner disc.
+
 ## Pieces
 
 | Day | Prompt                                                                                                     | Link                                                 |
@@ -65,9 +81,7 @@ specific variation.
 ## Built with
 
 - [p5.js](https://p5js.org/) for drawing, animation, and input in most pieces
-- Custom GLSL shaders for the GPU-heavy pieces (9 of the 31), including
-  raymarching (07), cellular automata (09, 27), and a multi-pass bloom pipeline
-  (20)
+- Custom GLSL shaders for the GPU-heavy pieces (9 of the 31)
 - [culori](https://culorijs.org/) for OKLCH palettes and color interpolation
 - [p5.js-svg](https://github.com/zenozeng/p5.js-svg) for vector output (22, 30)
 - Plain HTML/CSS with no canvas for day 28
