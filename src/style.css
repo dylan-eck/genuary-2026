@@ -170,4 +170,36 @@ nav {
     max-width: none;
     width: 90%;
   }
+
+  /* Sketch pages (the only pages with a <main>) fit exactly one screen: the
+     artwork shrinks to whatever height the nav and prompt leave, instead of a
+     fixed share of the viewport. svh is the height with the browser toolbars
+     showing, so nothing ends up hidden behind them. */
+  body:has(> main) {
+    height: 100vh;
+    height: 100svh;
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  body:has(> main) nav {
+    margin-top: 1em;
+    row-gap: 0.5em;
+  }
+
+  nav h2 {
+    margin: 0.25em 0;
+  }
+
+  main {
+    min-height: 0;
+    margin: 1em 0;
+  }
+
+  canvas,
+  iframe,
+  main > img,
+  main > div {
+    max-height: 100% !important;
+  }
 }
