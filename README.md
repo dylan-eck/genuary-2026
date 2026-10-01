@@ -1,8 +1,8 @@
 # Genuary 2026 Art
 
 <p align="center">
-31 generative artworks I created for Genuary 2026. Browse the
-<a href="https://dylan-eck.github.io/genuary-2026/">full gallery</a>.
+31 generative artworks I created for Genuary 2026. Click any piece below to run
+it in your browser.
 </p>
 
 <p align="center">
@@ -19,10 +19,12 @@ Genuary is a month-long generative art challenge that takes place each year in
 January. You can learn more about Genuary at
 [genuary.art](https://genuary.art/).
 
-The preview images above are single frames. Each piece runs in the browser, and most
-are generated from a random seed. You can press Space on a piece's page to generate a
-new variation. The seed is kept in the URL (`?seed=...`), so you can share or
-revisit a specific variation.
+While the preview images above are single frames, many of the pieces are
+animated. The [project website](https://dylan-eck.github.io/genuary-2026/) has
+the full version of every piece. Most of the pieces make use of randomness, and
+you can press <kbd>Space</kbd> on a piece's page to generate a new variation.
+The seed is kept in the URL (`?seed=...`), so you can share or revisit a
+specific variation.
 
 ## Built with
 
@@ -57,8 +59,6 @@ Copyright (c) 2026 Dylan Eck.
 - **Artwork** (images, videos, and other visual output from the sketches) is
   licensed under
   [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/).
-
-For commercial use of either, please get in touch.
 
 ### Third-party
 
