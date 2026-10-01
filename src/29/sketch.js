@@ -3,8 +3,6 @@
 // Prompt: "Genetic evolution and mutation."
 
 export default function sketch(p, seed) {
-  const RECORD_FRAME_COUNT = 60 * 60;
-
   class Boid {
     constructor(x, y, dna = null) {
       this.p = p;
@@ -162,7 +160,6 @@ export default function sketch(p, seed) {
     p.randomSeed(seed);
     p.noiseSeed(seed);
     p.createCanvas(1080, 1920);
-    // p.frameRate(20);
 
     boids = Array.from(
       { length: 10 },

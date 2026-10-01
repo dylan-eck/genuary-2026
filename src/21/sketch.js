@@ -14,8 +14,6 @@ export default function sketch(p, seed) {
   const D = 3;
   const L = 4;
 
-  let tiles = [];
-
   const rules = [
     [
       // blank

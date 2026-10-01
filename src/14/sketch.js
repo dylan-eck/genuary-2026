@@ -7,7 +7,6 @@ export default function sketch(p, seed) {
   const MIN_ACCEL = 0.00002;
   const MAX_ACCEL = 0.001;
   const CYCLE_FRAME_COUNT = 150;
-  const RECORD_CYCLE_COUNT = 12;
   let t;
   let box;
   let palette;
@@ -209,7 +208,6 @@ export default function sketch(p, seed) {
       -CAMERA_DISTANCE * p.tan(p.PI / 6),
       CAMERA_DISTANCE / p.sqrt(2),
     );
-    // p.frameRate(10);
 
     lightDirection = p.createVector(-0.4, 1, -0.4).normalize();
 
@@ -243,16 +241,6 @@ export default function sketch(p, seed) {
 
     box.update(t);
     box.show();
-
-    // if (
-    //   p.frameCount <=
-    //   RECORD_CYCLE_COUNT * CYCLE_FRAME_COUNT + CYCLE_FRAME_COUNT / 2 + 60
-    // ) {
-    //   const frameNum = `${p.frameCount}`.padStart(4, "0");
-    //   p.save(`${frameNum}.png`);
-    // } else {
-    //   p.noLoop();
-    // }
   };
 
   function nonZeroSign(v) {

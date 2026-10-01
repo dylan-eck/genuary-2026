@@ -58,10 +58,6 @@ For commercial use of either, please get in touch.
 
 ### Third-party
 
-- `src/lib/OpenSimplexNoise.js` is adapted from
-  [joshforisha/open-simplex-noise-js](https://github.com/joshforisha/open-simplex-noise-js)
-  and is in the public domain under the
-  [Unlicense](https://unlicense.org/).
 - The Google Sans Code font in `src/11/assets/fonts/` is licensed under the
   [SIL Open Font License 1.1](src/11/assets/fonts/Google_Sans_Code/OFL.txt).
 - p5.js, p5.js-svg, and culori are loaded from CDNs under their own licenses.

@@ -4,8 +4,6 @@
 // recurse on each cell again and again."
 
 export default function sketch(p, seed) {
-  const RECORD_FRAME_COUNT = 60 * 60;
-
   const NUM_POINTS = 256;
   const RAD = 400;
   const AMP = 100;
@@ -57,7 +55,6 @@ export default function sketch(p, seed) {
     p.randomSeed(seed);
     p.noiseSeed(seed);
     p.createCanvas(1080, 1920);
-    // p.frameRate(10);
   };
 
   p.draw = () => {

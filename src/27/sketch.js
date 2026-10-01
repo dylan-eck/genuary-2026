@@ -12,8 +12,6 @@ export default function sketch(p, seed) {
   const DOMAIN_WIDTH = CANVAS_WIDTH * SCALE;
   const DOMAIN_HEIGHT = CANVAS_HEIGHT * SCALE;
 
-  const RECORD_FRAME_COUNT = 60 * 60;
-
   let caShader, dispShader;
   let currFrame, prevFrame, dispFrame;
   let loading = true;

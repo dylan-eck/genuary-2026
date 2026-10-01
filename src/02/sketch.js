@@ -10,10 +10,6 @@ export default function sketch(p, seed) {
   const LOOP_FRAMES = 360;
 
   let balls = [];
-  let recorder;
-  let chunks = [];
-  let frame = 0;
-  let started = false;
 
   function ball() {
     return {
@@ -65,29 +61,6 @@ export default function sketch(p, seed) {
       );
       balls.push(b);
     }
-
-    const stream = p.canvas.captureStream(60);
-
-    recorder = new MediaRecorder(stream, {
-      mimeType: "video/webm; codecs=vp9",
-      videoBitsPerSecond: 8_000_000,
-    });
-
-    recorder.ondataavailable = (e) => {
-      if (e.data.size > 0) chunks.push(e.data);
-    };
-
-    recorder.onstop = () => {
-      const blob = new Blob(chunks, { type: "video/webm" });
-      const url = URL.createObjectURL(blob);
-
-      const a = document.createElement("a");
-      a.href = url;
-      a.download = "day02.webm";
-      a.click();
-
-      URL.revokeObjectURL(url);
-    };
   };
 
   p.draw = () => {
@@ -102,18 +75,6 @@ export default function sketch(p, seed) {
       balls[i].update(u);
       balls[i].show(u);
     }
-
-    // if (!started) {
-    //   recorder.start();
-    //   started = true;
-    // }
-
-    // frame++;
-
-    // if (frame > LOOP_FRAMES) {
-    //   recorder.stop();
-    //   p.noLoop();
-    // }
   };
 
   function bg() {

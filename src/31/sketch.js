@@ -4,7 +4,6 @@
 
 export default function sketch(p, seed) {
   const LOOP_FRAME_COUNT = 30 * 60;
-  const FRAME_RATE = 60;
 
   let sh;
   let t = 0;
@@ -22,7 +21,6 @@ export default function sketch(p, seed) {
     p.randomSeed(seed);
     p.noiseSeed(seed);
     p.createCanvas(1080, 1920, p.WEBGL);
-    // p.frameRate(2);
     p.noStroke();
   };
 

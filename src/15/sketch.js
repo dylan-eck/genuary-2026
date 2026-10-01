@@ -7,15 +7,11 @@ export default function sketch(p, seed) {
   let rot = 0;
   let trailLayer;
 
-  let RECORD_TIME = 60;
-  let FRAME_RATE = 60;
-
   p.setup = () => {
     p.randomSeed(seed);
     p.noiseSeed(seed);
     p.createCanvas(1080, 1920);
     p.pixelDensity(1);
-    // p.frameRate(5);
 
     trailLayer = p.createGraphics(p.width, p.height);
     trailLayer.noStroke();
@@ -111,12 +107,5 @@ export default function sketch(p, seed) {
 
     p.background(0);
     p.image(trailLayer, 0, 0);
-
-    // if (p.frameCount <= RECORD_TIME * FRAME_RATE) {
-    //   const frameNum = `${p.frameCount}`.padStart(4, "0");
-    //   p.save(`${frameNum}.png`);
-    // } else {
-    //   p.noLoop();
-    // }
   };
 }

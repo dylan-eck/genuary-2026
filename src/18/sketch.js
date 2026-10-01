@@ -8,11 +8,6 @@ export default function sketch(p, seed) {
   const MARGIN_PX = 50;
   const POINTS_PER_SEGMENT = 20;
   const POINT_DEV = 0.3;
-  const RECORD_SECONDS = 240;
-  const RECORD_FRAME_RATE = 60;
-  const RECORD_FRAME_COUNT = RECORD_SECONDS * RECORD_FRAME_RATE;
-
-  let recording = false;
 
   let positions = [];
   let segmentOffsets = [];
@@ -60,10 +55,6 @@ export default function sketch(p, seed) {
     p.noiseSeed(seed);
     p.createCanvas(1080, 1920);
 
-    if (recording) {
-      p.frameRate(10);
-    }
-
     positions.push({ x: targetX, y: targetY });
 
     const dir = (p.floor(p.random() * NUM_DIRS) / NUM_DIRS) * p.TAU;
@@ -79,16 +70,6 @@ export default function sketch(p, seed) {
     const initTheta = p.atan2(initDy, initDx);
     targetPhi = -p.PI / 2 - initTheta;
     prevPhi = targetPhi;
-
-    // p.background(255);
-    // p.beginClip();
-    // p.rect(
-    //   MARGIN_PX,
-    //   MARGIN_PX,
-    //   p.width - 2 * MARGIN_PX,
-    //   p.height - 2 * MARGIN_PX,
-    // );
-    // p.endClip();
   };
 
   p.draw = () => {
@@ -163,14 +144,5 @@ export default function sketch(p, seed) {
     }
 
     p.pop();
-
-    if (recording) {
-      if (p.frameCount <= RECORD_FRAME_COUNT) {
-        const frameNum = `${p.frameCount}`.padStart(4, "0");
-        p.save(`${frameNum}.png`);
-      } else {
-        p.noLoop();
-      }
-    }
   };
 }

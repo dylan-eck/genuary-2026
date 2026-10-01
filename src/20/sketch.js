@@ -7,7 +7,6 @@ import { loadShaderAsync } from "../lib/util.js";
 export default function sketch(p, seed) {
   const NUM_POINTS = 30;
   const SIZE = 800;
-  const PERIOD = 30;
 
   let squiggle;
   let lastU = 0;
@@ -24,7 +23,6 @@ export default function sketch(p, seed) {
   let squiggles = [];
   let currSquiggleIdx = 0;
 
-  let recording = false;
   let loading = true;
 
   async function load() {
@@ -44,10 +42,6 @@ export default function sketch(p, seed) {
     p.noiseSeed(seed);
     p.createCanvas(1080, 1920, p.WEBGL);
     p.curveDetail(200);
-
-    if (recording) {
-      p.frameRate(10);
-    }
 
     for (let i = 0; i < NUM_SQUIGGLES; i++) {
       squiggles.push(new Squiggle());
@@ -132,13 +126,6 @@ export default function sketch(p, seed) {
     p.resetShader();
     setupQuad();
     p.image(bloomPass, -p.width / 2, -p.height / 2, p.width, p.height);
-
-    // if (p.frameCount <= LOOP_FRAMES) {
-    //   const frameNum = `${p.frameCount}`.padStart(4, "0");
-    //   p.save(`${frameNum}.png`);
-    // } else {
-    //   p.noLoop();
-    // }
   };
 
   class Squiggle {

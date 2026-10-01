@@ -3,8 +3,6 @@
 // Prompt: "Transparency. Explore the concept of transparency."
 
 export default function sketch(p, seed) {
-  const RECORD_FRAME_COUNT = 60 * 90;
-
   const g = 1;
   const m1 = 2;
   const m2 = 2;
@@ -22,12 +20,11 @@ export default function sketch(p, seed) {
 
   let origin;
   let gradient;
-  let recording = false;
 
   p.setup = () => {
     p.randomSeed(seed);
     p.noiseSeed(seed);
-    p.frameRate(recording ? 10 : 60);
+    p.frameRate(60);
     p.createCanvas(1080, 1920);
     p.background(0);
 
@@ -72,7 +69,6 @@ export default function sketch(p, seed) {
       y: p1.y + L2 * p.cos(t2),
     };
 
-    // p.background(0);
     p.strokeWeight(12);
     p.strokeCap(p.SQUARE);
 
@@ -114,14 +110,5 @@ export default function sketch(p, seed) {
 
       p.line(x20, y20, x21, y21);
     }
-
-    if (!recording) return;
-
-    // if (p.frameCount <= RECORD_FRAME_COUNT) {
-    //   const frameNum = `${p.frameCount}`.padStart(4, "0");
-    //   p.save(`${frameNum}.png`);
-    // } else {
-    //   p.noLoop();
-    // }
   };
 }

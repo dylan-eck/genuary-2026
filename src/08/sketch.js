@@ -70,7 +70,6 @@ export default function sketch(p, seed) {
     p.randomSeed(seed);
     p.noiseSeed(seed);
     p.createCanvas(1080, 1920, p.WEBGL);
-    // p.frameRate(10);
     p.camera(0, 0, 50);
 
     for (let i = 0; i < NUM_ROWS; i++) {

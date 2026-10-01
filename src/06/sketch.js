@@ -17,12 +17,6 @@ export default function sketch(p, seed) {
   let offCount = 120;
   let onCount = 240;
 
-  let recorder;
-  let chunks = [];
-  let frame = 0;
-  let started = false;
-  const FRAME_RECORD_COUNT = 360 * 8;
-
   p.setup = () => {
     p.randomSeed(seed);
     p.noiseSeed(seed);
@@ -36,29 +30,6 @@ export default function sketch(p, seed) {
       const vel = p5.Vector.random2D().setMag(BASE_SPEED);
       bugs.push(new Bug(pos, vel));
     }
-
-    // const stream = p.canvas.captureStream(60);
-
-    // recorder = new MediaRecorder(stream, {
-    //   mimeType: "video/webm; codecs=vp9",
-    //   videoBitsPerSecond: 8_000_000,
-    // });
-
-    // recorder.ondataavailable = (e) => {
-    //   if (e.data.size > 0) chunks.push(e.data);
-    // };
-
-    // recorder.onstop = () => {
-    //   const blob = new Blob(chunks, { type: "video/webm" });
-    //   const url = URL.createObjectURL(blob);
-
-    //   const a = document.createElement("a");
-    //   a.href = url;
-    //   a.download = "day06.webm";
-    //   a.click();
-
-    //   URL.revokeObjectURL(url);
-    // };
   };
 
   p.draw = () => {
@@ -83,18 +54,6 @@ export default function sketch(p, seed) {
     }
 
     t += DT;
-
-    // if (!started) {
-    //   recorder.start();
-    //   started = true;
-    // }
-
-    // frame++;
-
-    // if (frame > FRAME_RECORD_COUNT) {
-    //   recorder.stop();
-    //   p.noLoop();
-    // }
   };
 
   class Bug {
