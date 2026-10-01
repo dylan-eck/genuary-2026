@@ -27,6 +27,17 @@ main {
   width: 100%;
   margin-top: 2em;
   margin-bottom: 2em;
+  /* Reserve the space the sketch will fill, using the canvas size each page
+     sets as --w and --h, so the page doesn't shift while the sketch loads or
+     restarts. This mirrors the canvas's max-width / max-height scaling below;
+     pages without the variables fall back to no minimum. */
+  min-height: min(75vh, 90vw * var(--h) / var(--w));
+}
+
+/* p5 shows a "Loading..." message while a sketch's preload() runs (day 11).
+   The space for the sketch is already reserved, so hide it. */
+#p5_loading {
+  display: none;
 }
 
 .main-container {
