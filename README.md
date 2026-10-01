@@ -19,8 +19,8 @@ Genuary is a month-long generative art challenge that takes place each year in
 January. You can learn more about Genuary at
 [genuary.art](https://genuary.art/).
 
-The thumbnails above are single frames. Each piece runs in the browser, and most
-are generated from a random seed: press Space on a piece's page to generate a
+The preview images above are single frames. Each piece runs in the browser, and most
+are generated from a random seed. You can press Space on a piece's page to generate a
 new variation. The seed is kept in the URL (`?seed=...`), so you can share or
 revisit a specific variation.
 
