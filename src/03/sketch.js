@@ -19,23 +19,28 @@ export default function sketch(p, seed) {
     origW = ret.w;
     origH = ret.h;
 
-    const canvasWidth = 1000;
-    scaleFactor = canvasWidth / origH;
+    let origAspect = origW / origH;
 
-    p.createCanvas(
-      scaleFactor * origH + 2 * MARGIN,
-      scaleFactor * origW + 2 * MARGIN,
-    );
+    if (origAspect < 0.8) {
+      scaleFactor = (1600 - 2 * MARGIN) / origH;
+    } else {
+      scaleFactor = (1080 - 2 * MARGIN) / origW;
+    }
+
+    p.createCanvas(1080, 1600);
     p.noLoop();
   };
 
   p.draw = () => {
     p.background("#f6eee3");
 
-    p.translate(MARGIN, MARGIN);
+    p.translate(
+      p.width / 2 - (origW * scaleFactor) / 2,
+      p.height / 2 - (origH * scaleFactor) / 2,
+    );
 
     p.push();
-    p.translate(origH * scaleFactor, 0);
+    p.translate(origW * scaleFactor, 0);
     p.rotate(p.PI / 2);
 
     for (const cell of cells) {
@@ -126,8 +131,8 @@ export default function sketch(p, seed) {
       seq[i] = seq[i - 1] + seq[i - 2];
     }
 
-    const w = seq[n];
-    const h = seq[n - 1];
+    const w = seq[n - 1];
+    const h = seq[n];
 
     let cells = [];
     let currCell = new Cell(x, y, seq[n], seq[n - 1]);
